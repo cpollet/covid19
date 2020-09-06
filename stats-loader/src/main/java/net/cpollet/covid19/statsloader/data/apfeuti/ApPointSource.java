@@ -58,10 +58,8 @@ public class ApPointSource implements Source<Point> {
     );
 
     private final ApDataSupplier supplier;
-    private final ArrayList<String> locations;
 
-    public ApPointSource(List<String> locations, ApDataSupplier supplier) {
-        this.locations = new ArrayList<>(locations);
+    public ApPointSource(ApDataSupplier supplier) {
         this.supplier = supplier;
     }
 
@@ -89,7 +87,7 @@ public class ApPointSource implements Source<Point> {
                 .getRecords().stream()
                 .collect(Collectors.groupingBy(ApRecord::getPlace));
 
-        return locations.stream()
+        return recordsGroupedByPlace.keySet().stream()
                 .map(recordsGroupedByPlace::get)
                 .flatMap(
                         records -> records.stream()

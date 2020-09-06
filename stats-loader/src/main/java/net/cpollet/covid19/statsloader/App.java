@@ -9,7 +9,6 @@ import net.cpollet.covid19.statsloader.data.foph.FophPointSource;
 import net.cpollet.covid19.statsloader.db.InfluxDBFactory;
 import org.influxdb.InfluxDB;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class App {
@@ -17,7 +16,7 @@ public class App {
         InfluxDB influxDB = InfluxDBFactory.covid19();
 
         Stream.of(
-                new ApPointSource(Arrays.asList("GE", "VD", "ZH", "VS"), new ApDataSupplier()),
+                new ApPointSource(new ApDataSupplier()),
                 new FophPointSource(new FophDataSupplier()),
                 new LastUpdateSource()
         )
