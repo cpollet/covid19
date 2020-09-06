@@ -24,13 +24,16 @@ public final class InfluxDBFactory {
     }
 
     public static InfluxDB covid19() {
-        final InfluxDB influxDB = org.influxdb.InfluxDBFactory
-                .connect("http://" + System.getProperty("influxdb.host") + ":8086");
+        final InfluxDB influxDB = org.influxdb.InfluxDBFactory.connect("http://" + dbHost() + ":8086");
         final String databaseName = "covid19";
         influxDB.query(new Query("drop database " + databaseName));
         influxDB.query(new Query("create database " + databaseName));
         influxDB.setDatabase(databaseName);
 
         return influxDB;
+    }
+
+    private static String dbHost() {
+        return System.getProperty("influxdb.host", System.getenv("INFLUXDB_HOST"));
     }
 }
