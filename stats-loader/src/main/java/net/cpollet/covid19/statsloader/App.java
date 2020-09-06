@@ -1,5 +1,6 @@
 package net.cpollet.covid19.statsloader;
 
+import net.cpollet.covid19.statsloader.data.LastUpdateSource;
 import net.cpollet.covid19.statsloader.data.Source;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApDataSupplier;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApPointSource;
@@ -17,7 +18,8 @@ public class App {
 
         Stream.of(
                 new ApPointSource(Arrays.asList("GE", "VD", "ZH", "VS"), new ApDataSupplier()),
-                new FophPointSource(new FophDataSupplier())
+                new FophPointSource(new FophDataSupplier()),
+                new LastUpdateSource()
         )
                 .parallel()
                 .flatMap(Source::stream)
