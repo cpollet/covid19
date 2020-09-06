@@ -1,5 +1,8 @@
 package net.cpollet.covid19.statsloader;
 
+import com.google.cloud.functions.HttpFunction;
+import com.google.cloud.functions.HttpRequest;
+import com.google.cloud.functions.HttpResponse;
 import net.cpollet.covid19.statsloader.data.Source;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApDataSupplier;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApPointSource;
@@ -11,7 +14,7 @@ import org.influxdb.InfluxDB;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class App {
+public class App implements HttpFunction {
     public static void main(String[] args) {
         InfluxDB influxDB = InfluxDBFactory.covid19();
 
@@ -22,5 +25,10 @@ public class App {
                 .parallel()
                 .flatMap(Source::stream)
                 .forEach(influxDB::write);
+    }
+
+    @Override
+    public void service(HttpRequest httpRequest, HttpResponse httpResponse) {
+        App.main(new String[]{});
     }
 }
