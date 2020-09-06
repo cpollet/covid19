@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.cpollet.covid19.statsloader.data.openzh;
+package net.cpollet.covid19.statsloader.data.apfeuti;
 
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class OpenZHRoot {
-    private Totals totals;
-    private List<Record> records;
+public class ApRoot {
+    private ApTotals totals;
+    private List<ApRecord> records;
 }

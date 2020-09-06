@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.cpollet.covid19.statsloader.data.openzh;
+package net.cpollet.covid19.statsloader.data.apfeuti;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class Totals {
+public class ApTotals {
     /**
      * Reported number of tests performed.
      */

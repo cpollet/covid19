@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package net.cpollet.covid19.statsloader.data.openzh;
+package net.cpollet.covid19.statsloader.data.apfeuti;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,7 +23,12 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.TextStyle;
+import java.util.Locale;
+import java.util.Optional;
 
 /**
  * Holds one data point.
@@ -31,7 +36,7 @@ import java.time.LocalTime;
  * See <a href="https://github.com/openZH/covid_19">https://github.com/openZH/covid_19</a>.
  */
 @Data
-public class Record {
+public class ApRecord {
     /**
      * Date of notification.
      */
@@ -239,4 +244,16 @@ public class Record {
      */
     @JsonProperty(value = "ninst_ICU_intub")
     private Integer ninstIcuIntub;
+
+    public long getTimestamp() {
+        LocalDateTime dateTime = LocalDateTime.of(
+                getDate(),
+                Optional.ofNullable(getTime()).orElse(LocalTime.of(23, 59, 59))
+        );
+        return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
+    }
+
+    public String getDayOfWeek () {
+        return date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+    }
 }
