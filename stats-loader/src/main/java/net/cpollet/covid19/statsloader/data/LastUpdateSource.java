@@ -16,8 +16,11 @@
 package net.cpollet.covid19.statsloader.data;
 
 import org.influxdb.dto.Point;
+import org.jetbrains.annotations.NotNull;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.stream.Stream;
 
 public class LastUpdateSource implements Source<Point> {
@@ -25,8 +28,15 @@ public class LastUpdateSource implements Source<Point> {
     public Stream<Point> stream() {
         return Stream.of(
                 Point.measurement("LastUpdate")
-                        .addField("value", LocalDateTime.now().toString())
+                        .addField("value", now())
                         .build()
         );
+    }
+
+    @NotNull
+    private String now() {
+        return Instant.now()
+                .atZone(ZoneId.of("Europe/Zurich"))
+                .format(DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm"));
     }
 }
