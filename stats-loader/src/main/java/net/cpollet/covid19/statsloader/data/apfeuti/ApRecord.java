@@ -15,13 +15,9 @@
  */
 package net.cpollet.covid19.statsloader.data.apfeuti;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import lombok.Data;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -40,23 +36,23 @@ public class ApRecord {
     /**
      * Date of notification.
      */
-    @JsonProperty(value = "date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @XmlAttribute(name = "date")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+//    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate date;
 
     /**
      * Time of notification.
      */
-    @JsonProperty(value = "time")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-    @JsonDeserialize(using = LocalTimeDeserializer.class)
+    @XmlAttribute(name = "time")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+//    @JsonDeserialize(using = LocalTimeDeserializer.class)
     private LocalTime time;
 
     /**
      * Abbreviation of the reporting canton.
      */
-    @JsonProperty(value = "abbreviation_canton_and_fl")
+    @XmlAttribute(name = "abbreviation_canton_and_fl")
     private String place;
 
     /**
@@ -64,7 +60,7 @@ public class ApRecord {
      * <p>
      * Irrespective of canton of residence.
      */
-    @JsonProperty(value = "ncumul_tested")
+    @XmlAttribute(name = "ncumul_tested")
     private Integer cumulatedTested;
 
     /**
@@ -72,7 +68,7 @@ public class ApRecord {
      * <p>
      * Only cases that reside in the current canton.
      */
-    @JsonProperty(value = "ncumul_conf")
+    @XmlAttribute(name = "ncumul_conf")
     private Integer cumulatedConfirmed;
 
     /**
@@ -80,7 +76,7 @@ public class ApRecord {
      * <p>
      * Irrespective of canton of residence.
      */
-    @JsonProperty(value = "new_hosp")
+    @XmlAttribute(name = "new_hosp")
     private Integer newHospitalised;
 
     /**
@@ -88,7 +84,7 @@ public class ApRecord {
      * <p>
      * Irrespective of canton of residence.
      */
-    @JsonProperty(value = "current_hosp")
+    @XmlAttribute(name = "current_hosp")
     private Integer currentHospitalised;
 
     /**
@@ -96,7 +92,7 @@ public class ApRecord {
      * <p>
      * Irrespective of canton of residence.
      */
-    @JsonProperty(value = "current_icu")
+    @XmlAttribute(name = "current_icu")
     private Integer currentIcu;
 
     /**
@@ -104,7 +100,7 @@ public class ApRecord {
      * <p>
      * Irrespective of canton of residence.
      */
-    @JsonProperty(value = "current_vent")
+    @XmlAttribute(name = "current_vent")
     private Integer currentVentilated;
 
     /**
@@ -112,7 +108,7 @@ public class ApRecord {
      * <p>
      * Irrespective of canton of residence.
      */
-    @JsonProperty(value = "ncumul_released")
+    @XmlAttribute(name = "ncumul_released")
     private Integer cumulatedReleased;
 
     /**
@@ -120,64 +116,64 @@ public class ApRecord {
      * <p>
      * Only cases that reside in the current canton.
      */
-    @JsonProperty(value = "ncumul_deceased")
+    @XmlAttribute(name = "ncumul_deceased")
     private Integer cumulatedDeceased;
 
     /**
      * Source of the information.
      */
-    @JsonProperty(value = "source")
+    @XmlAttribute(name = "source")
     private String source;
 
-    @JsonProperty(value = "ncumul_tested_fwd")
+    @XmlAttribute(name = "ncumul_tested_fwd")
     private int cumulatedTestedForward;
 
-    @JsonProperty(value = "ncumul_conf_fwd")
+    @XmlAttribute(name = "ncumul_conf_fwd")
     private int cumulatedConfirmedForward;
 
     /**
      * @deprecated use currentHospitalised
      */
     @Deprecated
-    @JsonProperty(value = "ncumul_hosp")
+    @XmlAttribute(name = "ncumul_hosp")
     private Integer cumulatedHospitalised;
 
     /**
      * @deprecated use currentIcu
      */
     @Deprecated
-    @JsonProperty(value = "ncumul_ICU")
+    @XmlAttribute(name = "ncumul_ICU")
     private Integer cumulatedIcu;
 
     /**
      * @deprecated use currentVentilated
      */
     @Deprecated
-    @JsonProperty(value = "ncumul_vent")
+    @XmlAttribute(name = "ncumul_vent")
     private Integer cumulatedVentilated;
 
-    @JsonProperty(value = "ncumul_hosp_fwd")
+    @XmlAttribute(name = "ncumul_hosp_fwd")
     private int cumulatedHospitalisedForward;
 
-    @JsonProperty(value = "ncumul_ICU_fwd")
+    @XmlAttribute(name = "ncumul_ICU_fwd")
     private int cumulatedIcuForward;
 
-    @JsonProperty(value = "ncumul_vent_fwd")
+    @XmlAttribute(name = "ncumul_vent_fwd")
     private int cumulatedVentilatedForward;
 
-    @JsonProperty(value = "current_hosp_fwd")
+    @XmlAttribute(name = "current_hosp_fwd")
     private int currentHospitalisedForward;
 
-    @JsonProperty(value = "current_icu_fwd")
+    @XmlAttribute(name = "current_icu_fwd")
     private int currentIcuForward;
 
-    @JsonProperty(value = "current_vent_fwd")
+    @XmlAttribute(name = "current_vent_fwd")
     private int currentVentilatedForward;
 
-    @JsonProperty(value = "ncumul_released_fwd")
+    @XmlAttribute(name = "ncumul_released_fwd")
     private int cumulatedReleasedForward;
 
-    @JsonProperty(value = "ncumul_deceased_fwd")
+    @XmlAttribute(name = "ncumul_deceased_fwd")
     private int cumulatedDeceasedForward;
 
     /**
@@ -185,7 +181,7 @@ public class ApRecord {
      * <p>
      * Infected persons, who are not hospitalised.
      */
-    @JsonProperty(value = "current_isolated")
+    @XmlAttribute(name = "current_isolated")
     private Integer currentIsolated;
 
     /**
@@ -194,55 +190,55 @@ public class ApRecord {
      * Persons, who were in 'close contact' with an infected person, while that person was infectious, and are not
      * hospitalised themselves.
      */
-    @JsonProperty(value = "current_quarantined")
+    @XmlAttribute(name = "current_quarantined")
     private Integer currentQuarantined;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "current_quarantined_riskareatravel")
+    @XmlAttribute(name = "current_quarantined_riskareatravel")
     private Integer currentQuarantinedRiskAreaTravel;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "current_quarantined_total")
+    @XmlAttribute(name = "current_quarantined_total")
     private Integer currentQuarantinedTotal;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "ncumul_confirmed_non_resident")
+    @XmlAttribute(name = "ncumul_confirmed_non_resident")
     private Integer cumulatedConfirmedNonResident;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "current_hosp_non_resident")
+    @XmlAttribute(name = "current_hosp_non_resident")
     private Integer currentHospitalisedNonResident;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "current_hosp_resident")
+    @XmlAttribute(name = "current_hosp_resident")
     private Integer currentHospitalisedResident;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "ncumul_ICF")
+    @XmlAttribute(name = "ncumul_ICF")
     private Integer cumulatedIcf;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "TotalPosTests1")
+    @XmlAttribute(name = "TotalPosTests1")
     private Integer totalPosTests1;
 
     /**
      * undocumented.
      */
-    @JsonProperty(value = "ninst_ICU_intub")
+    @XmlAttribute(name = "ninst_ICU_intub")
     private Integer ninstIcuIntub;
 
     public long getTimestamp() {

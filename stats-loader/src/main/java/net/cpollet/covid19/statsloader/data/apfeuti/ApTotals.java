@@ -15,71 +15,72 @@
  */
 package net.cpollet.covid19.statsloader.data.apfeuti;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import javax.xml.bind.annotation.XmlAttribute;
 
 @Data
 public class ApTotals {
     /**
      * Reported number of tests performed.
      */
-    @JsonProperty(value = "ncumul_tested_fwd")
+    @XmlAttribute(name = "ncumul_tested_fwd")
     private int cumulatedTested;
 
     /**
      * Reported number of confirmed cases.
      */
-    @JsonProperty(value = "ncumul_conf_fwd")
+    @XmlAttribute(name = "ncumul_conf_fwd")
     private int cumulatedConfirmed;
 
     /**
      * @deprecated use currentHospitalised
      */
     @Deprecated
-    @JsonProperty(value = "ncumul_hosp_fwd")
+    @XmlAttribute(name = "ncumul_hosp_fwd")
     private int cumulatedHospitalised;
 
     /**
      * @deprecated use currentIcu
      */
     @Deprecated
-    @JsonProperty(value = "ncumul_ICU_fwd")
+    @XmlAttribute(name = "ncumul_ICU_fwd")
     private int cumulatedIcu;
 
     /**
      * @deprecated use currentVentilated
      */
     @Deprecated
-    @JsonProperty(value = "ncumul_vent_fwd")
+    @XmlAttribute(name = "ncumul_vent_fwd")
     private int cumulatedVentilated;
 
     /**
      * Reported number of hospitalised patients.
      */
-    @JsonProperty(value = "current_hosp_fwd")
+    @XmlAttribute(name = "current_hosp_fwd")
     private int currentHospitalised;
 
     /**
      * Reported number of hospitalised patients in ICUs.
      */
-    @JsonProperty(value = "current_icu_fwd")
+    @XmlAttribute(name = "current_icu_fwd")
     private int currentIcu;
 
     /**
      * Reported number of patients requiring invasive ventilation.
      */
-    @JsonProperty(value = "current_vent_fwd")
+    @XmlAttribute(name = "current_vent_fwd")
     private int currentVentilated;
 
     /**
      * Reported number of patients released from hospitals or reported recovered.
      */
-    @JsonProperty(value = "ncumul_released_fwd")
+    @XmlAttribute(name = "ncumul_released_fwd")
     private int cumulatedReleased;
 
     /**
      * Reported number of deceased.
      */
-    @JsonProperty(value = "ncumul_deceased_fwd")
+    @XmlAttribute(name = "ncumul_deceased_fwd")
     private int cumulatedDeceased;
 }
