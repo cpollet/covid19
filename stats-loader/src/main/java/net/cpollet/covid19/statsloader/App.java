@@ -7,6 +7,8 @@ import net.cpollet.covid19.statsloader.data.LastUpdateSource;
 import net.cpollet.covid19.statsloader.data.Source;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApDataSupplier;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApPointSource;
+import net.cpollet.covid19.statsloader.data.covid19re.Covid19ReDataSupplier;
+import net.cpollet.covid19.statsloader.data.covid19re.Covid19ReSource;
 import net.cpollet.covid19.statsloader.data.foph.FophDataSupplier;
 import net.cpollet.covid19.statsloader.data.foph.FophPointSource;
 import net.cpollet.covid19.statsloader.db.InfluxDBFactory;
@@ -31,7 +33,8 @@ public class App implements HttpFunction {
         LOGGER.info("Computing points");
         List<Point> points = Stream.of(
                 new ApPointSource(new ApDataSupplier()),
-                new FophPointSource(new FophDataSupplier())
+                new FophPointSource(new FophDataSupplier()),
+                new Covid19ReSource(new Covid19ReDataSupplier())
         )
                 .parallel()
                 .flatMap(Source::stream)
@@ -45,7 +48,7 @@ public class App implements HttpFunction {
         );
 
         long duration = System.currentTimeMillis() - startTime;
-        LOGGER.info(String.format("Finised in %d ms", duration));
+        LOGGER.info(String.format("%d points sent in %d ms", points.size(), duration));
     }
 
     @Override
