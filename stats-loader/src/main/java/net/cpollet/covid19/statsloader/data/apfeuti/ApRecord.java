@@ -24,7 +24,6 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.TextStyle;
 import java.util.Locale;
-import java.util.Optional;
 
 /**
  * Holds one data point.
@@ -256,7 +255,7 @@ public class ApRecord {
     public long getTimestamp() {
         LocalDateTime dateTime = LocalDateTime.of(
                 getDate(),
-                Optional.ofNullable(getTime()).orElse(LocalTime.of(23, 59, 59))
+                LocalTime.of(12, 0, 0)
         );
         return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
     }

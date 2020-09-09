@@ -83,6 +83,8 @@ public class ApPointSource implements Source<Point> {
                 .getRecords().stream()
                 .collect(Collectors.groupingBy(ApRecord::getPlace));
 
+        verifyNoDuplicateDay(recordsGroupedByPlace);
+
         return recordsGroupedByPlace.keySet().stream()
                 .map(recordsGroupedByPlace::get)
                 .flatMap(
@@ -97,5 +99,19 @@ public class ApPointSource implements Source<Point> {
                                 )
 
                 );
+    }
+
+    private void verifyNoDuplicateDay(Map<String, List<ApRecord>> recordsGroupedByPlace) {
+        boolean foundDuplicateDay = recordsGroupedByPlace.values().stream()
+                .anyMatch(l ->
+                        l.stream()
+                                .collect(Collectors.groupingBy(ApRecord::getDate))
+                                .entrySet().stream()
+                                .anyMatch(e -> e.getValue().size() > 1)
+                );
+
+        if (foundDuplicateDay) {
+            throw new IllegalArgumentException("Found a duplicate date");
+        }
     }
 }

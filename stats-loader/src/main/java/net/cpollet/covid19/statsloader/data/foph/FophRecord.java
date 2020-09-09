@@ -33,7 +33,7 @@ public class FophRecord {
     public long getTimestamp() {
         LocalDateTime dateTime = LocalDateTime.of(
                 getDate(),
-                LocalTime.of(23, 59, 59)
+                LocalTime.of(12, 0, 0)
         );
         return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
     }

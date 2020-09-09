@@ -18,18 +18,18 @@ package net.cpollet.covid19.statsloader.data.foph;
 import net.cpollet.covid19.statsloader.data.Source;
 import org.influxdb.dto.Point;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FophPointSource implements Source<Point> {
-    private static final List<Function<FophRecord, Optional<Point>>> collectors = Arrays.asList(
+    private static final List<Function<FophRecord, Optional<Point>>> collectors = Collections.singletonList(
             r -> Optional.of(Point.measurement("Tests")
                     .time(r.getTimestamp(), TimeUnit.SECONDS)
-                    .tag("canton", "CH")
                     .tag("dayOfWeek", r.getDayOfWeek())
                     .addField("negative", r.getNegative())
                     .addField("positive", r.getPositive())
@@ -46,12 +46,27 @@ public class FophPointSource implements Source<Point> {
 
     @Override
     public Stream<Point> stream() {
-        return supplier.get().getRecords().stream()
+        List<FophRecord> records = supplier.get().getRecords();
+
+        verifyNoDuplicateDay(records);
+
+        return records.stream()
                 .flatMap(
                         r -> collectors.stream()
                                 .map(c -> c.apply(r))
                                 .filter(Optional::isPresent)
                                 .map(Optional::get)
                 );
+    }
+
+    private void verifyNoDuplicateDay(List<FophRecord> records) {
+        boolean foundDuplicateDay = records.stream()
+                .collect(Collectors.groupingBy(FophRecord::getDate))
+                .entrySet().stream()
+                .anyMatch(e -> e.getValue().size() > 1);
+
+        if (foundDuplicateDay) {
+            throw new IllegalArgumentException("Found a duplicate date");
+        }
     }
 }
