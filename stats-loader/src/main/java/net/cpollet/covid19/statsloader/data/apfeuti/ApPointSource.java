@@ -19,7 +19,6 @@ import net.cpollet.covid19.statsloader.data.Source;
 import net.cpollet.covid19.statsloader.utils.PairingCollector;
 import org.influxdb.dto.Point;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -41,19 +40,16 @@ public class ApPointSource implements Source<Point> {
                             .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
                             .tag("canton", p.getCurrent().getPlace())
                             .tag("dayOfWeek", p.getCurrent().getDayOfWeek())
-                            .addField("value", delta(p, ApRecord::getCumulatedTestedForward))
+                            .addField("new", delta(p, ApRecord::getCumulatedTestedForward))
+                            .addField("cumulated", p.getCurrent().getCumulatedConfirmedForward())
                             .build()
             ),
             p -> Optional.of(Point.measurement("Confirmed")
                     .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
                     .tag("canton", p.getCurrent().getPlace())
                     .tag("dayOfWeek", p.getCurrent().getDayOfWeek())
-                    .addField("value", delta(p, ApRecord::getCumulatedConfirmedForward))
-                    .build()),
-            p -> Optional.of(Point.measurement("CumulatedConfirmed")
-                    .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
-                    .tag("canton", p.getCurrent().getPlace())
-                    .addField("value", p.getCurrent().getCumulatedConfirmedForward())
+                    .addField("new", delta(p, ApRecord::getCumulatedConfirmedForward))
+                    .addField("cumulated", p.getCurrent().getCumulatedConfirmedForward())
                     .build())
     );
 

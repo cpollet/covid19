@@ -152,12 +152,24 @@ public class ApRecord {
     @XmlAttribute(name = "ncumul_vent")
     private Integer cumulatedVentilated;
 
+    /**
+     * @deprecated use currentHospitalisedForward
+     */
+    @Deprecated
     @XmlAttribute(name = "ncumul_hosp_fwd")
     private int cumulatedHospitalisedForward;
 
+    /**
+     * @deprecated use currentIcuForward
+     */
+    @Deprecated
     @XmlAttribute(name = "ncumul_ICU_fwd")
     private int cumulatedIcuForward;
 
+    /**
+     * @deprecated use currentVentilatedForward
+     */
+    @Deprecated
     @XmlAttribute(name = "ncumul_vent_fwd")
     private int cumulatedVentilatedForward;
 
