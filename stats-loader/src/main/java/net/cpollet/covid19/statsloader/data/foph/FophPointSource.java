@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FophPointSource implements Source<Point> {
@@ -60,10 +59,10 @@ public class FophPointSource implements Source<Point> {
     }
 
     private void verifyNoDuplicateDay(List<FophRecord> records) {
-        boolean foundDuplicateDay = records.stream()
-                .collect(Collectors.groupingBy(FophRecord::getDate))
-                .entrySet().stream()
-                .anyMatch(e -> e.getValue().size() > 1);
+        boolean foundDuplicateDay = records.size() > records.stream()
+                .map(FophRecord::getDate)
+                .distinct()
+                .count();
 
         if (foundDuplicateDay) {
             throw new IllegalArgumentException("Found a duplicate date");

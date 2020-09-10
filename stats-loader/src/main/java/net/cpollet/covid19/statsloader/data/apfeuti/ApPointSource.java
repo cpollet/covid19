@@ -50,6 +50,13 @@ public class ApPointSource implements Source<Point> {
                     .tag("dayOfWeek", p.getCurrent().getDayOfWeek())
                     .addField("new", delta(p, ApRecord::getCumulatedConfirmedForward))
                     .addField("cumulated", p.getCurrent().getCumulatedConfirmedForward())
+                    .build()),
+            p -> Optional.of(Point.measurement("Hospitalised")
+                    .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
+                    .tag("canton", p.getCurrent().getPlace())
+                    .tag("dayOfWeek", p.getCurrent().getDayOfWeek())
+                    .addField("current", p.getCurrent().getCurrentHospitalisedForward())
+                    .addField("new", delta(p, ApRecord::getCurrentHospitalisedForward))
                     .build())
     );
 
@@ -85,29 +92,30 @@ public class ApPointSource implements Source<Point> {
 
         verifyNoDuplicateDay(recordsGroupedByPlace);
 
-        return recordsGroupedByPlace.keySet().stream()
-                .map(recordsGroupedByPlace::get)
-                .flatMap(
-                        records -> records.stream()
-                                .sorted(Comparator.comparingLong(ApRecord::getTimestamp))
-                                .collect(PairingCollector.collector()).stream()
-                                .flatMap(
-                                        pair -> collectors.stream()
-                                                .map(c -> c.apply(pair))
-                                                .filter(Optional::isPresent)
-                                                .map(Optional::get)
-                                )
+        return recordsGroupedByPlace.values().stream().flatMap(this::collect);
+    }
 
-                );
+    private Stream<Point> collect(List<ApRecord> records) {
+        return records.stream()
+                .sorted(Comparator.comparingLong(ApRecord::getTimestamp))
+                .collect(PairingCollector.collector()).stream()
+                .flatMap(this::collect);
+    }
+
+    private Stream<Point> collect(PairingCollector.Pair<ApRecord> recordPair) {
+        return collectors.stream()
+                .map(c -> c.apply(recordPair))
+                .filter(Optional::isPresent)
+                .map(Optional::get);
     }
 
     private void verifyNoDuplicateDay(Map<String, List<ApRecord>> recordsGroupedByPlace) {
         boolean foundDuplicateDay = recordsGroupedByPlace.values().stream()
-                .anyMatch(l ->
-                        l.stream()
-                                .collect(Collectors.groupingBy(ApRecord::getDate))
-                                .entrySet().stream()
-                                .anyMatch(e -> e.getValue().size() > 1)
+                .anyMatch(records ->
+                        records.size() > records.stream()
+                                .map(ApRecord::getDate)
+                                .distinct()
+                                .count()
                 );
 
         if (foundDuplicateDay) {
