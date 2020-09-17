@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 
 public class FophPointSource implements Source<Point> {
     private static final List<Function<FophRecord, Optional<Point>>> collectors = Collections.singletonList(
-            r -> Optional.of(Point.measurement("Tests")
+            r -> Optional.of(Point.measurement("foph.Tests")
                     .time(r.getTimestamp(), TimeUnit.SECONDS)
                     .tag("dayOfWeek", r.getDayOfWeek())
                     .addField("negative", r.getNegative())

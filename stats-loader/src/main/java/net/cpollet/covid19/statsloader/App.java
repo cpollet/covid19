@@ -7,7 +7,7 @@ import net.cpollet.covid19.statsloader.data.LastUpdateSource;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApDataSupplier;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApPointSource;
 import net.cpollet.covid19.statsloader.data.covid19re.Covid19ReDataSupplier;
-import net.cpollet.covid19.statsloader.data.covid19re.Covid19ReSource;
+import net.cpollet.covid19.statsloader.data.covid19re.Covid19RePointSource;
 import net.cpollet.covid19.statsloader.data.foph.FophDataSupplier;
 import net.cpollet.covid19.statsloader.data.foph.FophPointSource;
 import net.cpollet.covid19.statsloader.db.InfluxDBFactory;
@@ -56,7 +56,7 @@ public class App implements HttpFunction {
         List<? extends Callable<Stream<Point>>> tasks = Arrays.asList(
                 () -> new ApPointSource(new ApDataSupplier()).stream(),
                 () -> new FophPointSource(new FophDataSupplier()).stream(),
-                () -> new Covid19ReSource(new Covid19ReDataSupplier()).stream()
+                () -> new Covid19RePointSource(new Covid19ReDataSupplier()).stream()
         );
 
         try {

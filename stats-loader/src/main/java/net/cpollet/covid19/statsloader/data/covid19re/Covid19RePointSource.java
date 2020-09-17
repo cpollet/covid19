@@ -26,9 +26,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class Covid19ReSource implements Source<Point> {
+public class Covid19RePointSource implements Source<Point> {
     private static final List<Function<Covid19ReRecord, Optional<Point>>> collectors = Arrays.asList(
-            r -> Optional.of(Point.measurement("Re")
+            r -> Optional.of(Point.measurement("covid19re.Re")
                     .time(r.getTimestamp(), TimeUnit.SECONDS)
                     .tag("canton", r.getCanton())
                     .tag("dayOfWeek", r.getDayOfWeek())
@@ -40,7 +40,7 @@ public class Covid19ReSource implements Source<Point> {
 
     private final Covid19ReDataSupplier supplier;
 
-    public Covid19ReSource(Covid19ReDataSupplier supplier) {
+    public Covid19RePointSource(Covid19ReDataSupplier supplier) {
         this.supplier = supplier;
     }
 

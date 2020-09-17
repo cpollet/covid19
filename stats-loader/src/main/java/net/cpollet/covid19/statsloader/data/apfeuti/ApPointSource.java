@@ -36,7 +36,7 @@ public class ApPointSource implements Source<Point> {
             p -> pointIf(
                     p,
                     pair -> pair.getCurrent().getCumulatedTested() != null,
-                    pair -> Point.measurement("Tested")
+                    pair -> Point.measurement("apfeuti.Tested")
                             .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
                             .tag("canton", p.getCurrent().getPlace())
                             .tag("dayOfWeek", p.getCurrent().getDayOfWeek())
@@ -44,14 +44,14 @@ public class ApPointSource implements Source<Point> {
                             .addField("cumulated", p.getCurrent().getCumulatedConfirmedForward())
                             .build()
             ),
-            p -> Optional.of(Point.measurement("Confirmed")
+            p -> Optional.of(Point.measurement("apfeuti.Confirmed")
                     .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
                     .tag("canton", p.getCurrent().getPlace())
                     .tag("dayOfWeek", p.getCurrent().getDayOfWeek())
                     .addField("new", delta(p, ApRecord::getCumulatedConfirmedForward))
                     .addField("cumulated", p.getCurrent().getCumulatedConfirmedForward())
                     .build()),
-            p -> Optional.of(Point.measurement("Hospitalised")
+            p -> Optional.of(Point.measurement("apfeuti.Hospitalised")
                     .time(p.getCurrent().getTimestamp(), TimeUnit.SECONDS)
                     .tag("canton", p.getCurrent().getPlace())
                     .tag("dayOfWeek", p.getCurrent().getDayOfWeek())

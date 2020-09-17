@@ -18,7 +18,6 @@ package net.cpollet.covid19.statsloader.data.covid19re;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
-import java.io.InputStream;
 import java.util.function.Supplier;
 
 /**
