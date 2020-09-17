@@ -10,7 +10,12 @@ import net.cpollet.covid19.statsloader.data.covid19re.Covid19ReDataSupplier;
 import net.cpollet.covid19.statsloader.data.covid19re.Covid19RePointSource;
 import net.cpollet.covid19.statsloader.data.foph.FophDataSupplier;
 import net.cpollet.covid19.statsloader.data.foph.FophPointSource;
+import net.cpollet.covid19.statsloader.data.h2.H2PointSource;
+import net.cpollet.covid19.statsloader.data.timoll.TmDataLoader;
+import net.cpollet.covid19.statsloader.data.timoll.TmDataSupplier;
+import net.cpollet.covid19.statsloader.db.H2Factory;
 import net.cpollet.covid19.statsloader.db.InfluxDBFactory;
+import net.cpollet.covid19.statsloader.domain.Switzerland;
 import org.influxdb.dto.BatchPoints;
 import org.influxdb.dto.Point;
 
@@ -52,8 +57,13 @@ public class App implements HttpFunction {
     }
 
     private List<Point> computePoints() {
+        LOGGER.info("Importing data");
+        Switzerland.instance(H2Factory.inMemory());
+        new TmDataLoader(H2Factory.inMemory()).load(new TmDataSupplier());
+
         LOGGER.info("Computing points");
         List<? extends Callable<Stream<Point>>> tasks = Arrays.asList(
+                () -> new H2PointSource(H2Factory.inMemory()).stream(),
                 () -> new ApPointSource(new ApDataSupplier()).stream(),
                 () -> new FophPointSource(new FophDataSupplier()).stream(),
                 () -> new Covid19RePointSource(new Covid19ReDataSupplier()).stream()
