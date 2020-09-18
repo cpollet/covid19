@@ -18,9 +18,11 @@ package net.cpollet.covid19.statsloader.data.timoll;
 import lombok.RequiredArgsConstructor;
 import net.cpollet.covid19.statsloader.db.DataLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import java.time.LocalDate;
 import java.util.function.Supplier;
 
 
@@ -41,5 +43,17 @@ public class TmDataLoader implements DataLoader<TmRoot> {
                                 .addValue("measure", r.getValue())
                 )
         );
+
+        jdbcTemplate.query("select min(date) from covid_data", rs -> {
+            LocalDate minDate = LocalDate.parse(rs.getString(1)).minusDays(1);
+            LocalDate current = LocalDate.now();
+
+            while (current.isAfter(minDate)) {
+                namedParameterJdbcTemplate.update("merge into dates values (:date)",
+                        new MapSqlParameterSource("date", current)
+                );
+                current = current.minusDays(1);
+            }
+        });
     }
 }

@@ -1,21 +1,34 @@
 create table covid_data (
     date date,
     canton varchar(2),
-    weekday int, -- ISO-8601 standard
-    week int,
-    sex varchar(1), -- M, F
+    -- weekday int, -- ISO-8601 standard
+    -- week int,
+    -- sex varchar(1), -- M, F
     cases int,
-    hospitalized int,
+    -- hospitalized int,
     primary key (date, canton)
 );
 
--- Population --
--- source: http://www.pxweb.bfs.admin.ch/sq/a1e5c2da-3e0d-4a48-a99d-901bb55f5db8
+create table dates (
+    date date primary key
+);
+
 create table population (
     canton varchar(2),
     sex varchar(1), -- M, F
     count int
 );
+
+create view cantons as (
+    select distinct canton as canton from population
+);
+
+create view contiguous_covid_data as (
+    with dataset as (select dates.date, cantons.canton from dates cross join cantons)
+    select d.date, d.canton, nvl(cd.cases,0) as cases from covid_data cd right join dataset d on cd.date = d.date and cd.canton = d.canton
+);
+
+-- source: http://www.pxweb.bfs.admin.ch/sq/a1e5c2da-3e0d-4a48-a99d-901bb55f5db8
 insert into population values ('ZH','M',757081);
 insert into population values ('ZH','F',763887);
 insert into population values ('BE','M',507791);

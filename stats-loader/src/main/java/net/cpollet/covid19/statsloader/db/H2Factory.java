@@ -15,6 +15,7 @@
  */
 package net.cpollet.covid19.statsloader.db;
 
+import org.h2.jdbcx.JdbcDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -28,13 +29,22 @@ public final class H2Factory {
 
     public static JdbcTemplate inMemory() {
         if (template == null) {
-            template = new JdbcTemplate(
-                    new EmbeddedDatabaseBuilder()
-                            .setType(EmbeddedDatabaseType.H2)
-                            .addScript("classpath:jdbc/covid19.sql")
-                            .setName("covid19")
-                            .build()
-            );
+            String h2Url = System.getProperty("h2.url");
+            if (h2Url == null) {
+                template = new JdbcTemplate(
+                        new EmbeddedDatabaseBuilder()
+                                .setType(EmbeddedDatabaseType.H2)
+                                .addScript("classpath:jdbc/covid19.sql")
+                                .setName("covid19")
+                                .build()
+                );
+            }
+            else {
+                JdbcDataSource datasource = new JdbcDataSource();
+                datasource.setURL(h2Url);
+                datasource.setUser("sa");
+                template = new JdbcTemplate(datasource);
+            }
         }
 
         return template;

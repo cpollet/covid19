@@ -31,30 +31,37 @@ public class H2PointSource implements Source<Point> {
 
     @Override
     public Stream<Point> stream() {
-        return jdbcTemplate.query("select " +
+        return jdbcTemplate.query(
+                "select" +
                         "  date," +
                         "  canton," +
                         "  cases," +
-                        "  sum(cases) over (partition by canton order by date range between unbounded preceding and current row)," +
-                        "  sum(cases) over (partition by canton order by date range between 14 preceding and current row)" +
+                        "  sum(cases) over (partition by canton order by date range between unbounded preceding and current row) as total," +
+                        "  sum(cases) over (partition by canton order by date range between 14 preceding and current row) as moving_window," +
+                        "  (select count from population where canton = d.canton and sex='M') as male_pop," +
+                        "  (select count from population where canton = d.canton and sex='F') as female_pop " +
                         "from" +
-                        "  covid_data",
+                        "  contiguous_covid_data d",
                 (rs, rowNum) -> new H2Row(
-                        LocalDate.parse(rs.getString(1)),
-                        Switzerland.CantonCode.valueOf(rs.getString(2)),
+                        LocalDate.parse(rs.getString("date")),
+                        Switzerland.CantonCode.valueOf(rs.getString("canton")),
                         Arrays.asList(
-                                new H2Field("new", rs.getDouble(3)),
-                                new H2Field("total", rs.getDouble(4)),
+                                new H2Field("new", rs.getDouble("cases")),
+                                new H2Field("total", rs.getDouble("total")),
                                 new H2Field(
-                                        "prevalence",
-                                        prevalence(rs.getDouble(4), Switzerland.CantonCode.valueOf(rs.getString(2)))
+                                        "risk_level",
+                                        prevalence(
+                                                rs.getDouble("moving_window"),
+                                                rs.getLong("male_pop") + rs.getLong("female_pop")
+                                        )
                                 )
                         )
+
                 )
         ).stream().map(r -> r.toPoint("h2.Confirmed"));
     }
 
-    private double prevalence(double value, Switzerland.CantonCode canton) {
-        return value / Switzerland.instance().canton(canton).population();
+    private double prevalence(double value, long population) {
+        return value / (double) population * 100_000.0;
     }
 }
