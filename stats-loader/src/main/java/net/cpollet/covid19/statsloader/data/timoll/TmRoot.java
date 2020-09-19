@@ -26,30 +26,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Getter
 public class TmRoot {
     private final List<TmRecord> records;
 
-    public TmRoot(String data) {
-        List<String> rows = Arrays.asList(data.split("\n"));
+    public TmRoot(String casesData, String deathsData) {
+        List<String> casesRows = Arrays.asList(casesData.split("\n"));
+        Map<Integer, Switzerland.CantonCode> casesCantonsIndices = mapColumnToCanton(casesRows.get(0).split(","));
 
-        Map<Integer, Switzerland.CantonCode> cantons = mapColumnToCanton(rows.get(0).split(","));
+        List<String> deathsRows = Arrays.asList(deathsData.split("\n"));
+        Map<Integer, Switzerland.CantonCode> deathsCantonsIndices = mapColumnToCanton(deathsRows.get(0).split(","));
 
-        this.records = rows.stream().skip(1)
-                .map(r -> toRecords(r, cantons))
-                .flatMap(List::stream)
-                .collect(Collectors.toList());
+        this.records = Stream.concat(
+                casesRows.stream().skip(1)
+                        .map(r -> toRecords(r, casesCantonsIndices, "cases"))
+                        .flatMap(List::stream),
+                deathsRows.stream().skip(1)
+                        .map(r -> toRecords(r, deathsCantonsIndices, "deaths"))
+                        .flatMap(List::stream)
+
+        ).collect(Collectors.toList());
     }
 
-    private List<TmRecord> toRecords(String row, Map<Integer, Switzerland.CantonCode> cantons) {
+    private List<TmRecord> toRecords(String row, Map<Integer, Switzerland.CantonCode> cantons, String measure) {
         List<TmRecord> tmRecords = new ArrayList<>();
 
         List<String> columns = Arrays.asList(row.split(","));
         LocalDate date = LocalDate.parse(columns.get(0), DateTimeFormatter.ISO_LOCAL_DATE);
 
         for (int i = 1; i < columns.size(); i++) {
-            tmRecords.add(new TmRecord(date, cantons.get(i), "cases", (int) Float.parseFloat(columns.get(i))));
+            tmRecords.add(new TmRecord(date, cantons.get(i), measure, Double.parseDouble(columns.get(i))));
         }
 
         return tmRecords;

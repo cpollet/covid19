@@ -25,14 +25,19 @@ import java.util.function.Supplier;
  * <a href="https://github.com/timoll/bag_scrape">https://github.com/timoll/bag_scrape</a>.
  */
 public class TmDataSupplier implements Supplier<TmRoot> {
-    private static final String URL = "https://raw.githubusercontent.com/timoll/bag_scrape/master/out/ch_cantons/cases.csv";
+    private static final String CASES_URL = "https://raw.githubusercontent.com/timoll/bag_scrape/master/out/ch_cantons/cases.csv";
+    private static final String DEATHS_URL = "https://raw.githubusercontent.com/timoll/bag_scrape/master/out/ch_cantons/deaths.csv";
 
     @Override
     public TmRoot get() {
         Client client = ClientBuilder.newBuilder().build();
-        WebTarget webTarget = client.target(URL);
-        String data = webTarget.request().get().readEntity(String.class);
 
-        return new TmRoot(data);
+        WebTarget webTargetCasesData = client.target(CASES_URL);
+        String casesData = webTargetCasesData.request().get().readEntity(String.class);
+
+        WebTarget webTargetDeathsData = client.target(DEATHS_URL);
+        String deathsData = webTargetDeathsData.request().get().readEntity(String.class);
+
+        return new TmRoot(casesData, deathsData);
     }
 }
