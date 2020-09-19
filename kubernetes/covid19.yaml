@@ -115,6 +115,8 @@ spec:
           value: "covid19.cpollet.net"
         - name: GF_SERVER_ROOT_URL
           value: "http://covid19.cpollet.net"
+        - name: GF_ANALYTICS_GOOGLE_ANALYTICS_UA_ID
+          value: "UA-178471039-1"
       volumes:
       - name: grafana-persistent-storage
         persistentVolumeClaim:
