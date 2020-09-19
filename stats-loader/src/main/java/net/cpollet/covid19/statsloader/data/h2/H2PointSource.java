@@ -104,6 +104,20 @@ public class H2PointSource implements Source<Point> {
                                 )
 
                         )
+                ).stream().map(r -> r.toPoint("h2.Deaths")),
+                jdbcTemplate.query(
+                        "select " +
+                                "  (select sum(cases) cases from contiguous_covid_data) as cases," +
+                                "  (select sum(deaths) deaths from contiguous_covid_data) as deaths",
+                        (rs, rowNum) -> new H2Row(
+                                LocalDate.now(),
+                                Switzerland.CantonCode.CH,
+                                new H2Field(
+                                        "death_rate",
+                                        rs.getDouble("deaths") / rs.getLong("cases")
+                                )
+
+                        )
                 ).stream().map(r -> r.toPoint("h2.Deaths"))
         ).flatMap(Function.identity());
     }
