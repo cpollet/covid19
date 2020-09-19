@@ -23,6 +23,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
@@ -31,37 +32,55 @@ public class H2PointSource implements Source<Point> {
 
     @Override
     public Stream<Point> stream() {
-        return jdbcTemplate.query(
-                "select" +
-                        "  date," +
-                        "  canton," +
-                        "  cases," +
-                        "  sum(cases) over (partition by canton order by date range between unbounded preceding and current row) as total," +
-                        "  sum(cases) over (partition by canton order by date range between 14 preceding and current row) as moving_window," +
-                        "  (select count from population where canton = d.canton and sex='M') as male_pop," +
-                        "  (select count from population where canton = d.canton and sex='F') as female_pop " +
-                        "from" +
-                        "  contiguous_covid_data d",
-                (rs, rowNum) -> new H2Row(
-                        LocalDate.parse(rs.getString("date")),
-                        Switzerland.CantonCode.valueOf(rs.getString("canton")),
-                        Arrays.asList(
-                                new H2Field("new", rs.getDouble("cases")),
-                                new H2Field("total", rs.getDouble("total")),
-                                new H2Field(
-                                        "risk_level",
-                                        prevalence(
-                                                rs.getDouble("moving_window"),
-                                                rs.getLong("male_pop") + rs.getLong("female_pop")
+        return Stream.of(
+                jdbcTemplate.query(
+                        "select" +
+                                "  date," +
+                                "  canton," +
+                                "  cases," +
+                                "  sum(cases) over (partition by canton order by date range between unbounded preceding and current row) as total," +
+                                "  sum(cases) over (partition by canton order by date range between 15 preceding and 1 preceding) as moving_window," +
+                                "  (select count from population where canton = d.canton and sex='M') as male_pop," +
+                                "  (select count from population where canton = d.canton and sex='F') as female_pop " +
+                                "from" +
+                                "  contiguous_covid_data d",
+                        (rs, rowNum) -> new H2Row(
+                                LocalDate.parse(rs.getString("date")),
+                                Switzerland.CantonCode.valueOf(rs.getString("canton")),
+                                Arrays.asList(
+                                        new H2Field("new", rs.getDouble("cases")),
+                                        new H2Field("total", rs.getDouble("total")),
+                                        new H2Field(
+                                                "risk_level",
+                                                incidence(
+                                                        rs.getDouble("moving_window"),
+                                                        rs.getLong("male_pop") + rs.getLong("female_pop")
+                                                )
                                         )
                                 )
-                        )
 
+                        )
+                ),
+                jdbcTemplate.query(
+                        "select " +
+                                "  (select sum(cases) cases from contiguous_covid_data where date > sysdate - 15 and date < sysdate - 1) as cases," +
+                                "  (select sum(count) from population) as total_pop",
+                        (rs, rowNum) -> new H2Row(
+                                LocalDate.now(),
+                                Switzerland.CantonCode.CH,
+                                new H2Field(
+                                        "incidence_14d",
+                                        incidence(rs.getDouble("cases"), rs.getLong("total_pop"))
+                                )
+
+                        )
                 )
-        ).stream().map(r -> r.toPoint("h2.Confirmed"));
+        )
+                .flatMap(List::stream)
+                .map(r -> r.toPoint("h2.Confirmed"));
     }
 
-    private double prevalence(double value, long population) {
+    private double incidence(double value, long population) {
         return value / (double) population * 100_000.0;
     }
 }
