@@ -5,12 +5,13 @@ import com.google.cloud.functions.HttpRequest;
 import com.google.cloud.functions.HttpResponse;
 import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.data.LastUpdateSource;
+import net.cpollet.covid19.statsloader.data.Source;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApDataLoader;
 import net.cpollet.covid19.statsloader.data.apfeuti.ApDataSupplier;
 import net.cpollet.covid19.statsloader.data.covid19re.Covid19ReDataSupplier;
 import net.cpollet.covid19.statsloader.data.covid19re.Covid19RePointSource;
+import net.cpollet.covid19.statsloader.data.foph.FophDataLoader;
 import net.cpollet.covid19.statsloader.data.foph.FophDataSupplier;
-import net.cpollet.covid19.statsloader.data.foph.FophPointSource;
 import net.cpollet.covid19.statsloader.data.h2.H2PointSource;
 import net.cpollet.covid19.statsloader.data.timoll.TmDataLoader;
 import net.cpollet.covid19.statsloader.data.timoll.TmDataSupplier;
@@ -19,14 +20,7 @@ import net.cpollet.covid19.statsloader.db.InfluxDBFactory;
 import net.cpollet.covid19.statsloader.domain.Switzerland;
 import org.influxdb.dto.BatchPoints;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -60,49 +54,18 @@ public class App implements HttpFunction {
         }
     }
 
-
     private List<DataPoint> computePoints() {
         LOGGER.info("Importing data");
         Switzerland.instance(H2Factory.inMemory());
         new TmDataLoader(H2Factory.inMemory()).load(new TmDataSupplier());
         new ApDataLoader(H2Factory.inMemory()).load(new ApDataSupplier());
+        new FophDataLoader(H2Factory.inMemory()).load(new FophDataSupplier());
 
         LOGGER.info("Computing points");
-        List<? extends Callable<Stream<DataPoint>>> tasks = Arrays.asList(
-                () -> new H2PointSource(H2Factory.inMemory()).stream(),
-                () -> new FophPointSource(new FophDataSupplier()).stream(),
-                () -> new Covid19RePointSource(new Covid19ReDataSupplier()).stream()
-        );
-
-        try {
-            ExecutorService executor = Executors.newFixedThreadPool(1);
-            try {
-                return executor.invokeAll(tasks).stream()
-                        .flatMap(this::get)
-                        .collect(Collectors.toList());
-            } finally {
-                executor.shutdown();
-            }
-        }
-        catch (InterruptedException e) {
-            LOGGER.info("Interrupted");
-            Thread.currentThread().interrupt();
-            return Collections.emptyList();
-        }
-    }
-
-    private Stream<DataPoint> get(Future<Stream<DataPoint>> future) {
-        try {
-            return future.get();
-        }
-        catch (InterruptedException e) {
-            LOGGER.info("Interrupted");
-            Thread.currentThread().interrupt();
-            return Stream.empty();
-        }
-        catch (ExecutionException e) {
-            throw new Error(e);
-        }
+        return Stream.of(
+                new H2PointSource(H2Factory.inMemory()),
+                new Covid19RePointSource(new Covid19ReDataSupplier())
+        ).flatMap(Source::stream).collect(Collectors.toList());
     }
 
     @Override

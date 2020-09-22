@@ -7,6 +7,8 @@ create table covid_data (
     cases int default 0,
     deaths int default 0,
     hospitalized int default 0,
+    tests_positive int default 0,
+    tests_negative int default 0,
     primary key (date, canton)
 );
 
@@ -22,6 +24,8 @@ create table population (
 
 create view cantons as (
     select distinct canton as canton from population
+    union
+    select 'CH'
 );
 
 create view contiguous_covid_data as (
@@ -31,7 +35,10 @@ create view contiguous_covid_data as (
         d.canton,
         nvl(cd.cases,0) as cases,
         nvl(cd.deaths,0) as deaths,
-        nvl(hospitalized,0) as hospitalized
+        nvl(hospitalized,0) as hospitalized,
+        nvl(tests_positive,0) as tests_positive,
+        nvl(tests_negative,0) as tests_negative,
+        nvl(tests_positive,0) + nvl(tests_negative,0) as tests_total
     from covid_data cd right join dataset d on cd.date = d.date and cd.canton = d.canton
 );
 
