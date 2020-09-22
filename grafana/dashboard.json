@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1600545985334,
+  "iteration": 1600809874026,
   "links": [
     {
       "icon": "external link",
@@ -29,7 +29,7 @@
   ],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -38,142 +38,141 @@
         "y": 0
       },
       "id": 60,
-      "panels": [
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 18,
-            "x": 0,
-            "y": 1
-          },
-          "id": 38,
-          "options": {
-            "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
-            "mode": "markdown"
-          },
-          "pluginVersion": "7.1.0",
-          "targets": [
-            {
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "",
-          "transparent": true,
-          "type": "text"
-        },
-        {
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "rgb(145, 122, 104)",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 2,
-            "w": 6,
-            "x": 18,
-            "y": 1
-          },
-          "id": 44,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": true
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.1.5",
-          "targets": [
-            {
-              "alias": "",
-              "groupBy": [],
-              "measurement": "LastUpdate",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Last update",
-          "transparent": true,
-          "type": "stat"
-        }
-      ],
+      "panels": [],
       "title": "Info",
       "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 18,
+        "x": 0,
+        "y": 1
+      },
+      "id": 38,
+      "options": {
+        "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
+        "mode": "markdown"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(145, 122, 104)",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 44,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "alias": "",
+          "groupBy": [],
+          "measurement": "LastUpdate",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Last update",
+      "transparent": true,
+      "type": "stat"
     },
     {
       "collapsed": false,
@@ -182,7 +181,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 7
       },
       "id": 32,
       "panels": [],
@@ -213,7 +212,7 @@
         "h": 10,
         "w": 3,
         "x": 0,
-        "y": 2
+        "y": 8
       },
       "id": 20,
       "options": {
@@ -340,13 +339,13 @@
         },
         "overrides": []
       },
-      "fill": 1,
+      "fill": 0,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 10,
         "x": 3,
-        "y": 2
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 10,
@@ -392,7 +391,7 @@
             }
           ],
           "hide": false,
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -430,7 +429,7 @@
             }
           ],
           "hide": false,
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -446,6 +445,80 @@
               {
                 "params": [],
                 "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "total, moving average 7d",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Tests",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "avg_tests_total_7d"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "total, moving average 14d",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Tests",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "avg_tests_total_14d"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
               }
             ]
           ],
@@ -514,7 +587,7 @@
         "h": 10,
         "w": 11,
         "x": 13,
-        "y": 2
+        "y": 8
       },
       "hiddenSeries": false,
       "id": 12,
@@ -563,7 +636,7 @@
             }
           ],
           "hide": false,
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -601,7 +674,7 @@
             }
           ],
           "hide": false,
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -610,19 +683,13 @@
             [
               {
                 "params": [
-                  "posRatio"
+                  "avg_posRatio_7d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "last"
-              },
-              {
-                "params": [
-                  "7"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -645,7 +712,7 @@
             }
           ],
           "hide": false,
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -654,19 +721,13 @@
             [
               {
                 "params": [
-                  "posRatio"
+                  "avg_posRatio_14d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "last"
-              },
-              {
-                "params": [
-                  "14"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -725,16 +786,14 @@
         "defaults": {
           "custom": {},
           "mappings": [],
+          "max": 60,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "orange",
-                "value": 50
               },
               {
                 "color": "red",
@@ -747,45 +806,30 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 4,
         "w": 3,
         "x": 0,
-        "y": 12
+        "y": 18
       },
       "id": 164,
       "interval": null,
       "links": [],
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
         },
-        "textMode": "value"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
       "pluginVersion": "7.1.5",
       "targets": [
         {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
+          "groupBy": [],
           "measurement": "h2.Confirmed",
           "orderByTime": "ASC",
           "policy": "default",
@@ -801,7 +845,7 @@
               },
               {
                 "params": [],
-                "type": "sum"
+                "type": "last"
               }
             ]
           ],
@@ -812,7 +856,7 @@
       "timeShift": null,
       "title": "Incidence / 14 days CH",
       "transparent": true,
-      "type": "stat"
+      "type": "gauge"
     },
     {
       "aliasColors": {},
@@ -832,7 +876,7 @@
         "h": 9,
         "w": 10,
         "x": 3,
-        "y": 12
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 144,
@@ -899,7 +943,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -973,19 +1017,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_7d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "7"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -1016,19 +1054,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_14d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "14"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -1096,7 +1128,7 @@
         "h": 9,
         "w": 11,
         "x": 13,
-        "y": 12
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 250,
@@ -1248,13 +1280,86 @@
       }
     },
     {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 22
+      },
+      "id": 326,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^h2\\.Deaths.death_rate$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "death_rate"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Death rate CH",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
       "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 27
       },
       "id": 26,
       "panels": [],
@@ -1280,7 +1385,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 23
+        "y": 28
       },
       "hiddenSeries": false,
       "id": 2,
@@ -1350,7 +1455,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               }
@@ -1438,19 +1543,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_7d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "7"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -1490,19 +1589,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_14d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "14"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -1578,10 +1671,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 23
+        "y": 28
       },
       "hiddenSeries": false,
-      "id": 301,
+      "id": 342,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1606,7 +1699,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -1650,7 +1743,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               }
@@ -1738,19 +1831,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_7d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "7"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -1790,19 +1877,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_14d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "14"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -1878,10 +1959,10 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 35
+        "y": 40
       },
       "hiddenSeries": false,
-      "id": 302,
+      "id": 343,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1906,7 +1987,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -1950,7 +2031,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               }
@@ -2038,19 +2119,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_7d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "7"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -2090,19 +2165,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_14d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "14"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -2178,10 +2247,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 35
+        "y": 40
       },
       "hiddenSeries": false,
-      "id": 303,
+      "id": 344,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2206,7 +2275,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -2250,7 +2319,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               }
@@ -2338,19 +2407,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_7d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "7"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -2390,19 +2453,13 @@
             [
               {
                 "params": [
-                  "new"
+                  "avg_14d"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "sum"
-              },
-              {
-                "params": [
-                  "14"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -2502,7 +2559,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 52
       },
       "id": 52,
       "maxPerRow": 2,
@@ -2683,9 +2740,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 52
       },
-      "id": 304,
+      "id": 345,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -2699,7 +2756,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -2866,9 +2923,9 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 53
+        "y": 58
       },
-      "id": 305,
+      "id": 346,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -2882,7 +2939,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3049,9 +3106,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 53
+        "y": 58
       },
-      "id": 306,
+      "id": 347,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -3065,7 +3122,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3226,7 +3283,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 59
+        "y": 64
       },
       "hiddenSeries": false,
       "id": 6,
@@ -3392,10 +3449,10 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 59
+        "y": 64
       },
       "hiddenSeries": false,
-      "id": 307,
+      "id": 348,
       "legend": {
         "avg": false,
         "current": false,
@@ -3416,7 +3473,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -3560,10 +3617,10 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 64
+        "y": 69
       },
       "hiddenSeries": false,
-      "id": 308,
+      "id": 349,
       "legend": {
         "avg": false,
         "current": false,
@@ -3584,7 +3641,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -3728,10 +3785,10 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 64
+        "y": 69
       },
       "hiddenSeries": false,
-      "id": 309,
+      "id": 350,
       "legend": {
         "avg": false,
         "current": false,
@@ -3752,7 +3809,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -3866,7 +3923,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 69
+        "y": 74
       },
       "id": 285,
       "panels": [
@@ -3889,7 +3946,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 50
+            "y": 69
           },
           "hiddenSeries": false,
           "id": 8,
@@ -4024,10 +4081,10 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 50
+            "y": 69
           },
           "hiddenSeries": false,
-          "id": 295,
+          "id": 336,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -4052,7 +4109,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1600545644060,
+          "repeatIteration": 1600804410503,
           "repeatPanelId": 8,
           "scopedVars": {
             "canton": {
@@ -4161,10 +4218,10 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 57
+            "y": 76
           },
           "hiddenSeries": false,
-          "id": 296,
+          "id": 337,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -4189,7 +4246,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1600545644060,
+          "repeatIteration": 1600804410503,
           "repeatPanelId": 8,
           "scopedVars": {
             "canton": {
@@ -4298,10 +4355,10 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 57
+            "y": 76
           },
           "hiddenSeries": false,
-          "id": 297,
+          "id": 338,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -4326,7 +4383,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1600545644060,
+          "repeatIteration": 1600804410503,
           "repeatPanelId": 8,
           "scopedVars": {
             "canton": {
@@ -4438,7 +4495,7 @@
             "h": 12,
             "w": 12,
             "x": 0,
-            "y": 64
+            "y": 83
           },
           "id": 14,
           "interval": null,
@@ -4530,9 +4587,9 @@
             "h": 12,
             "w": 12,
             "x": 12,
-            "y": 64
+            "y": 83
           },
-          "id": 298,
+          "id": 339,
           "interval": null,
           "legend": {
             "show": true,
@@ -4546,7 +4603,7 @@
           "pluginVersion": "7.1.5",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1600545644060,
+          "repeatIteration": 1600804410503,
           "repeatPanelId": 14,
           "scopedVars": {
             "canton": {
@@ -4624,9 +4681,9 @@
             "h": 12,
             "w": 12,
             "x": 0,
-            "y": 76
+            "y": 95
           },
-          "id": 299,
+          "id": 340,
           "interval": null,
           "legend": {
             "show": true,
@@ -4640,7 +4697,7 @@
           "pluginVersion": "7.1.5",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1600545644060,
+          "repeatIteration": 1600804410503,
           "repeatPanelId": 14,
           "scopedVars": {
             "canton": {
@@ -4718,9 +4775,9 @@
             "h": 12,
             "w": 12,
             "x": 12,
-            "y": 76
+            "y": 95
           },
-          "id": 300,
+          "id": 341,
           "interval": null,
           "legend": {
             "show": true,
@@ -4734,7 +4791,7 @@
           "pluginVersion": "7.1.5",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1600545644060,
+          "repeatIteration": 1600804410503,
           "repeatPanelId": 14,
           "scopedVars": {
             "canton": {
@@ -4801,7 +4858,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 70
+        "y": 75
       },
       "id": 90,
       "panels": [],
@@ -4828,7 +4885,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 71
+        "y": 76
       },
       "hiddenSeries": false,
       "id": 88,
@@ -4890,7 +4947,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4934,7 +4991,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5025,10 +5082,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 71
+        "y": 76
       },
       "hiddenSeries": false,
-      "id": 310,
+      "id": 351,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5051,7 +5108,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5089,7 +5146,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5133,7 +5190,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5224,10 +5281,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 79
+        "y": 84
       },
       "hiddenSeries": false,
-      "id": 311,
+      "id": 352,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5250,7 +5307,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5288,7 +5345,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5332,7 +5389,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5423,10 +5480,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 79
+        "y": 84
       },
       "hiddenSeries": false,
-      "id": 312,
+      "id": 353,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5449,7 +5506,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5487,7 +5544,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5531,7 +5588,7 @@
             }
           ],
           "hide": false,
-          "measurement": "apfeuti.Hospitalised",
+          "measurement": "h2.Hospitalized",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5609,7 +5666,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 87
+        "y": 92
       },
       "id": 235,
       "panels": [],
@@ -5634,7 +5691,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 88
+        "y": 93
       },
       "hiddenSeries": false,
       "id": 237,
@@ -5824,10 +5881,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 88
+        "y": 93
       },
       "hiddenSeries": false,
-      "id": 313,
+      "id": 354,
       "legend": {
         "avg": false,
         "current": true,
@@ -5848,7 +5905,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6016,10 +6073,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 96
+        "y": 101
       },
       "hiddenSeries": false,
-      "id": 314,
+      "id": 355,
       "legend": {
         "avg": false,
         "current": true,
@@ -6040,7 +6097,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6208,10 +6265,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 96
+        "y": 101
       },
       "hiddenSeries": false,
-      "id": 315,
+      "id": 356,
       "legend": {
         "avg": false,
         "current": true,
@@ -6232,7 +6289,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6402,7 +6459,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 104
+        "y": 109
       },
       "hiddenSeries": false,
       "id": 248,
@@ -6484,7 +6541,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -6647,10 +6704,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 104
+        "y": 109
       },
       "hiddenSeries": false,
-      "id": 316,
+      "id": 357,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6673,7 +6730,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -6731,7 +6788,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -6894,10 +6951,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 112
+        "y": 117
       },
       "hiddenSeries": false,
-      "id": 317,
+      "id": 358,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6920,7 +6977,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -6978,7 +7035,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -7141,10 +7198,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 112
+        "y": 117
       },
       "hiddenSeries": false,
-      "id": 318,
+      "id": 359,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7167,7 +7224,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -7225,7 +7282,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -7375,7 +7432,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 120
+        "y": 125
       },
       "id": 68,
       "panels": [],
@@ -7402,7 +7459,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 121
+        "y": 126
       },
       "hiddenSeries": false,
       "id": 50,
@@ -7656,10 +7713,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 121
+        "y": 126
       },
       "hiddenSeries": false,
-      "id": 319,
+      "id": 360,
       "legend": {
         "avg": false,
         "current": true,
@@ -7680,7 +7737,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -7912,10 +7969,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 129
+        "y": 134
       },
       "hiddenSeries": false,
-      "id": 320,
+      "id": 361,
       "legend": {
         "avg": false,
         "current": true,
@@ -7936,7 +7993,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -8168,10 +8225,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 129
+        "y": 134
       },
       "hiddenSeries": false,
-      "id": 321,
+      "id": 362,
       "legend": {
         "avg": false,
         "current": true,
@@ -8192,7 +8249,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -8412,7 +8469,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 137
+        "y": 142
       },
       "id": 116,
       "panels": [],
@@ -8438,7 +8495,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 138
+        "y": 143
       },
       "hiddenSeries": false,
       "id": 118,
@@ -8590,10 +8647,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 138
+        "y": 143
       },
       "hiddenSeries": false,
-      "id": 322,
+      "id": 363,
       "legend": {
         "avg": false,
         "current": true,
@@ -8614,7 +8671,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -8744,10 +8801,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 146
+        "y": 151
       },
       "hiddenSeries": false,
-      "id": 323,
+      "id": 364,
       "legend": {
         "avg": false,
         "current": true,
@@ -8768,7 +8825,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -8898,10 +8955,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 146
+        "y": 151
       },
       "hiddenSeries": false,
-      "id": 324,
+      "id": 365,
       "legend": {
         "avg": false,
         "current": true,
@@ -8922,7 +8979,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600545985334,
+      "repeatIteration": 1600809874026,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -9079,7 +9136,7 @@
     ]
   },
   "time": {
-    "from": "now-6M",
+    "from": "2020-02-23T23:00:00.000Z",
     "to": "now"
   },
   "timepicker": {
@@ -9090,5 +9147,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 120
+  "version": 137
 }
