@@ -23,7 +23,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -39,9 +38,12 @@ public class H2PointSource implements Source<Point> {
                                 "  date," +
                                 "  canton," +
                                 "  cases," +
-                                "  sum(cases) over (partition by canton order by date range between unbounded preceding and current row) as total," +
-                                "  sum(cases) over (partition by canton order by date range between 15 preceding and 1 preceding) as moving_window," +
-                                "  (select count from population where canton = d.canton and sex='M') as male_pop," +
+                                "  sum(cases) over (partition by canton order by date range between unbounded preceding and current row) as sum, " +
+                                "  sum(cases) over (partition by canton order by date range between 6 preceding and current row) as sum_7d, " +
+                                "  sum(cases) over (partition by canton order by date range between 13 preceding and current row) as sum_14d, " +
+                                "  avg(cases) over (partition by canton order by date range between 6 preceding and current row) as avg_7d, " +
+                                "  avg(cases) over (partition by canton order by date range between 13 preceding and current row) as avg_14d, " +
+                                "  (select count from population where canton = d.canton and sex='M') as male_pop, " +
                                 "  (select count from population where canton = d.canton and sex='F') as female_pop " +
                                 "from" +
                                 "  contiguous_covid_data d",
@@ -50,11 +52,15 @@ public class H2PointSource implements Source<Point> {
                                 Switzerland.CantonCode.valueOf(rs.getString("canton")),
                                 Arrays.asList(
                                         new H2Field("new", rs.getDouble("cases")),
-                                        new H2Field("total", rs.getDouble("total")),
+                                        new H2Field("sum", rs.getDouble("sum")),
+                                        new H2Field("sum_7d", rs.getDouble("sum_7d")),
+                                        new H2Field("sum_14d", rs.getDouble("sum_14d")),
+                                        new H2Field("avg_7d", rs.getDouble("avg_7d")),
+                                        new H2Field("avg_14d", rs.getDouble("avg_14d")),
                                         new H2Field(
                                                 "incidence",
                                                 incidence(
-                                                        rs.getDouble("moving_window"),
+                                                        rs.getDouble("sum_14d"),
                                                         rs.getLong("male_pop") + rs.getLong("female_pop")
                                                 )
                                         )
