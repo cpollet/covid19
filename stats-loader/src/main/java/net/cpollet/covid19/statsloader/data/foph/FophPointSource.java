@@ -15,27 +15,13 @@
  */
 package net.cpollet.covid19.statsloader.data.foph;
 
+import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.data.Source;
-import org.influxdb.dto.Point;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class FophPointSource implements Source<Point> {
-    private static final List<Function<FophRecord, Optional<Point>>> collectors = Collections.singletonList(
-            r -> Optional.of(Point.measurement("foph.Tests")
-                    .time(r.getTimestamp(), TimeUnit.SECONDS)
-                    .tag("dayOfWeek", r.getDayOfWeek())
-                    .addField("negative", r.getNegative())
-                    .addField("positive", r.getPositive())
-                    .addField("total", r.getNegative() + r.getPositive())
-                    .addField("posRatio", (double) r.getPositive() / (r.getNegative() + r.getPositive()))
-                    .build())
-    );
+public class FophPointSource implements Source<DataPoint> {
 
     private final FophDataSupplier supplier;
 
@@ -44,18 +30,13 @@ public class FophPointSource implements Source<Point> {
     }
 
     @Override
-    public Stream<Point> stream() {
+    public Stream<DataPoint> stream() {
         List<FophRecord> records = supplier.get().getRecords();
 
         verifyNoDuplicateDay(records);
 
         return records.stream()
-                .flatMap(
-                        r -> collectors.stream()
-                                .map(c -> c.apply(r))
-                                .filter(Optional::isPresent)
-                                .map(Optional::get)
-                );
+                .map(FophRecord::toPoint);
     }
 
     private void verifyNoDuplicateDay(List<FophRecord> records) {

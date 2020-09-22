@@ -15,9 +15,10 @@
  */
 package net.cpollet.covid19.statsloader.data.h2;
 
+import com.google.common.collect.ImmutableMap;
 import lombok.AllArgsConstructor;
+import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.domain.Switzerland;
-import org.influxdb.dto.Point;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,7 +28,7 @@ import java.time.format.TextStyle;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 public class H2Row {
@@ -39,23 +40,17 @@ public class H2Row {
         this(date, canton, Collections.singletonList(field));
     }
 
-    public Point toPoint(String measure) {
-        Point.Builder pointBuilder = Point.measurement(measure)
-                .time(timestamp(), TimeUnit.SECONDS)
-                .tag("dayOfWeek", dayOfWeek())
-                .tag("canton", canton.name());
-
-        fields.forEach(f -> pointBuilder.addField(f.getMeasure(), f.getValue()));
-
-        return pointBuilder.build();
-    }
-
-    private long timestamp() {
-        LocalDateTime dateTime = LocalDateTime.of(
-                date,
-                LocalTime.of(12, 0, 0)
+    public DataPoint toPoint(String measure) {
+        return new DataPoint(
+                date.atTime(23, 59, 59),
+                measure,
+                ImmutableMap.of(
+                        "dayOfWeek", dayOfWeek(),
+                        "canton", canton.name()
+                ),
+                fields.stream().collect(Collectors.toMap(H2Field::getMeasure, H2Field::getValue))
         );
-        return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
+
     }
 
     private String dayOfWeek() {

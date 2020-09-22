@@ -18,6 +18,7 @@ package net.cpollet.covid19.statsloader.data.covid19re;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,7 +30,9 @@ public class Covid19ReRoot {
         this.records = Stream.of(data.split("\n")).skip(1)
                 .filter(s -> s.contains("Cori_slidingWindow"))
                 .filter(s -> s.contains("Confirmed cases"))
-                .map(r -> new Covid19ReRecord(r.trim()))
+                .map(Covid19ReRecord::fromString)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
                 .collect(Collectors.toList());
     }
 }

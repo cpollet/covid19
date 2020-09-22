@@ -15,43 +15,71 @@
  */
 package net.cpollet.covid19.statsloader.data.covid19re;
 
+import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
+import net.cpollet.covid19.statsloader.data.DataPoint;
+import net.cpollet.covid19.statsloader.domain.Switzerland;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Locale;
+import java.util.Optional;
 
 @Getter
 public class Covid19ReRecord {
     private final LocalDate date;
-    private final String canton;
-    private final float medianRMean;
-    private final float medianRHigh;
-    private final float medianRLow;
+    private final Switzerland.CantonCode canton;
+    private final double medianRMean;
+    private final double medianRHigh;
+    private final double medianRLow;
 
-    public Covid19ReRecord(String row) {
-        String[] columns = row.split(",");
-        this.date = LocalDate.parse(columns[5], DateTimeFormatter.ISO_LOCAL_DATE);
-        this.canton = columns[1];
-        this.medianRMean = Float.parseFloat(columns[6]);
-        this.medianRHigh = Float.parseFloat(columns[7]);
-        this.medianRLow = Float.parseFloat(columns[8]);
-
+    private Covid19ReRecord(LocalDate date, Switzerland.CantonCode canton, double medianRMean, double medianRHigh, double medianRLow) {
+        this.date = date;
+        this.canton = canton;
+        this.medianRMean = medianRMean;
+        this.medianRHigh = medianRHigh;
+        this.medianRLow = medianRLow;
     }
 
-    public long getTimestamp() {
-        LocalDateTime dateTime = LocalDateTime.of(
-                getDate(),
-                LocalTime.of(23, 59, 59)
+    public static Optional<Covid19ReRecord> fromString(String row) {
+        String[] columns = row.trim().split(",");
+
+        if (columns[1].equals("CHE")) {
+            columns[1] = "CH";
+        }
+        if (!Switzerland.CantonCode.isValid(columns[1])) {
+            return Optional.empty();
+        }
+
+        return Optional.of(
+                new Covid19ReRecord(
+                        LocalDate.parse(columns[5], DateTimeFormatter.ISO_LOCAL_DATE),
+                        Switzerland.CantonCode.valueOf(columns[1]),
+                        Float.parseFloat(columns[6]),
+                        Float.parseFloat(columns[7]),
+                        Float.parseFloat(columns[8])
+                )
         );
-        return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
     }
 
-    public String getDayOfWeek() {
+    public DataPoint toPoint() {
+        return new DataPoint(
+                date.atTime(23, 59, 59),
+                "covid19re.Re",
+                ImmutableMap.of(
+                        "dayOfWeek", dayOfWeek(),
+                        "canton", canton.name()
+                ),
+                ImmutableMap.of(
+                        "re_median", medianRMean,
+                        "re_low", medianRLow,
+                        "re_high", medianRHigh
+                )
+        );
+    }
+
+    private String dayOfWeek() {
         return date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
     }
 }

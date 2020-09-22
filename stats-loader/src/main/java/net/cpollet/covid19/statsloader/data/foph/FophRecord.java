@@ -15,7 +15,10 @@
  */
 package net.cpollet.covid19.statsloader.data.foph;
 
+import com.google.common.collect.ImmutableMap;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import net.cpollet.covid19.statsloader.data.DataPoint;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,21 +27,33 @@ import java.time.ZoneId;
 import java.time.format.TextStyle;
 import java.util.Locale;
 
-@Data
+@RequiredArgsConstructor
 public class FophRecord {
     private final LocalDate date;
     private final int positive;
     private final int negative;
 
-    public long getTimestamp() {
-        LocalDateTime dateTime = LocalDateTime.of(
-                getDate(),
-                LocalTime.of(12, 0, 0)
-        );
-        return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
+    public LocalDate getDate() {
+        return date;
     }
 
-    public String getDayOfWeek() {
+    public DataPoint toPoint() {
+        return new DataPoint(
+                date.atTime(23, 59, 59),
+                "foph.Tests",
+                ImmutableMap.of(
+                        "dayOfWeek", dayOfWeek()
+                ),
+                ImmutableMap.of(
+                        "negative", (double) negative,
+                        "positive", (double) positive,
+                        "total", (double) negative + positive,
+                        "posRatio", (double) positive / (negative + positive)
+                )
+        );
+    }
+
+    private String dayOfWeek() {
         return date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
     }
 }

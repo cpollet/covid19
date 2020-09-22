@@ -16,6 +16,8 @@
 package net.cpollet.covid19.statsloader.data.apfeuti;
 
 import lombok.Data;
+import net.cpollet.covid19.statsloader.data.DataPoint;
+import org.influxdb.dto.Point;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import java.time.LocalDate;
@@ -24,6 +26,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.TextStyle;
 import java.util.Locale;
+import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Holds one data point.
@@ -36,16 +40,12 @@ public class ApRecord {
      * Date of notification.
      */
     @XmlAttribute(name = "date")
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-//    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate date;
 
     /**
      * Time of notification.
      */
     @XmlAttribute(name = "time")
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-//    @JsonDeserialize(using = LocalTimeDeserializer.class)
     private LocalTime time;
 
     /**
@@ -251,16 +251,4 @@ public class ApRecord {
      */
     @XmlAttribute(name = "ninst_ICU_intub")
     private Integer ninstIcuIntub;
-
-    public long getTimestamp() {
-        LocalDateTime dateTime = LocalDateTime.of(
-                getDate(),
-                LocalTime.of(12, 0, 0)
-        );
-        return dateTime.toEpochSecond(ZoneId.of("Europe/Zurich").getRules().getOffset(dateTime));
-    }
-
-    public String getDayOfWeek () {
-        return date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
-    }
 }

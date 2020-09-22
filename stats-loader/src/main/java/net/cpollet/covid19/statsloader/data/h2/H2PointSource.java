@@ -16,9 +16,9 @@
 package net.cpollet.covid19.statsloader.data.h2;
 
 import lombok.RequiredArgsConstructor;
+import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.data.Source;
 import net.cpollet.covid19.statsloader.domain.Switzerland;
-import org.influxdb.dto.Point;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.time.LocalDate;
@@ -27,11 +27,11 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
-public class H2PointSource implements Source<Point> {
+public class H2PointSource implements Source<DataPoint> {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public Stream<Point> stream() {
+    public Stream<DataPoint> stream() {
         return Stream.of(
                 jdbcTemplate.query(
                         "select" +
@@ -124,7 +124,31 @@ public class H2PointSource implements Source<Point> {
                                 )
 
                         )
-                ).stream().map(r -> r.toPoint("h2.Deaths"))
+                ).stream().map(r -> r.toPoint("h2.Deaths")),
+                jdbcTemplate.query(
+                        "select " +
+                                "  date, " +
+                                "  canton, " +
+                                "  hospitalized, " +
+                                "  (select p.hospitalized from contiguous_covid_data p where p.canton=d.canton and p.date=d.date-1) as prev_hospitalized " +
+                                "from " +
+                                "  contiguous_covid_data d",
+                        (rs, rowNum) -> new H2Row(
+                                LocalDate.parse(rs.getString("date")),
+                                Switzerland.CantonCode.valueOf(rs.getString("canton")),
+                                Arrays.asList(
+                                        new H2Field(
+                                                "current",
+                                                rs.getDouble("hospitalized")
+                                        ),
+                                        new H2Field(
+                                                "new",
+                                                rs.getDouble("hospitalized") - rs.getDouble("prev_hospitalized")
+                                        )
+                                )
+
+                        )
+                ).stream().map(r -> r.toPoint("h2.Hospitalized"))
         ).flatMap(Function.identity());
     }
 

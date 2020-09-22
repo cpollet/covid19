@@ -21,10 +21,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Switzerland implements Area {
@@ -78,5 +81,13 @@ public class Switzerland implements Area {
 
     public enum CantonCode {
         ZH, BE, LU, UR, SZ, OW, NW, GL, ZG, FR, SO, BS, BL, SH, AR, AI, SG, GR, AG, TG, TI, VD, VS, NE, GE, JU, FL, CH;
+
+        private static final List<String> validStrings = Arrays.stream(CantonCode.values())
+                .map(Enum::name)
+                .collect(Collectors.toList());
+
+        public static boolean isValid(String canton) {
+            return validStrings.contains(canton);
+        }
     }
 }

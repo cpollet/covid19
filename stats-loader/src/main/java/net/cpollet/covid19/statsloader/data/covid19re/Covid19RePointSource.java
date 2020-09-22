@@ -15,29 +15,12 @@
  */
 package net.cpollet.covid19.statsloader.data.covid19re;
 
+import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.data.Source;
-import net.cpollet.covid19.statsloader.data.foph.FophRecord;
-import org.influxdb.dto.Point;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class Covid19RePointSource implements Source<Point> {
-    private static final List<Function<Covid19ReRecord, Optional<Point>>> collectors = Arrays.asList(
-            r -> Optional.of(Point.measurement("covid19re.Re")
-                    .time(r.getTimestamp(), TimeUnit.SECONDS)
-                    .tag("canton", r.getCanton())
-                    .tag("dayOfWeek", r.getDayOfWeek())
-                    .addField("re_median", r.getMedianRMean())
-                    .addField("re_low", r.getMedianRLow())
-                    .addField("re_high", r.getMedianRHigh())
-                    .build())
-    );
-
+public class Covid19RePointSource implements Source<DataPoint> {
     private final Covid19ReDataSupplier supplier;
 
     public Covid19RePointSource(Covid19ReDataSupplier supplier) {
@@ -45,13 +28,8 @@ public class Covid19RePointSource implements Source<Point> {
     }
 
     @Override
-    public Stream<Point> stream() {
+    public Stream<DataPoint> stream() {
         return supplier.get().getRecords().stream()
-                .flatMap(
-                        r -> collectors.stream()
-                                .map(c -> c.apply(r))
-                                .filter(Optional::isPresent)
-                                .map(Optional::get)
-                );
+                .map(Covid19ReRecord::toPoint);
     }
 }

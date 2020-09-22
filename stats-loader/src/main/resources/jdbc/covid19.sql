@@ -4,9 +4,9 @@ create table covid_data (
     -- weekday int, -- ISO-8601 standard
     -- week int,
     -- sex varchar(1), -- M, F
-    cases int,
-    deaths int,
-    -- hospitalized int,
+    cases int default 0,
+    deaths int default 0,
+    hospitalized int default 0,
     primary key (date, canton)
 );
 
@@ -26,7 +26,13 @@ create view cantons as (
 
 create view contiguous_covid_data as (
     with dataset as (select dates.date, cantons.canton from dates cross join cantons)
-    select d.date, d.canton, nvl(cd.cases,0) as cases, nvl(cd.deaths,0) as deaths from covid_data cd right join dataset d on cd.date = d.date and cd.canton = d.canton
+    select
+        d.date,
+        d.canton,
+        nvl(cd.cases,0) as cases,
+        nvl(cd.deaths,0) as deaths,
+        nvl(hospitalized,0) as hospitalized
+    from covid_data cd right join dataset d on cd.date = d.date and cd.canton = d.canton
 );
 
 -- source: http://www.pxweb.bfs.admin.ch/sq/a1e5c2da-3e0d-4a48-a99d-901bb55f5db8
