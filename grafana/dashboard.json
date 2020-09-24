@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1600970290876,
+  "iteration": 1600973723916,
   "links": [
     {
       "icon": "external link",
@@ -210,8 +210,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
-        "w": 3,
+        "h": 7,
+        "w": 5,
         "x": 0,
         "y": 2
       },
@@ -333,9 +333,552 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Totals CH",
-      "transparent": true,
+      "title": "General",
       "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 5,
+        "y": 2
+      },
+      "id": 414,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "alias": "low",
+          "groupBy": [],
+          "measurement": "covid19re.Re",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "re_low"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "median",
+          "groupBy": [],
+          "measurement": "covid19re.Re",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "re_median"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "high",
+          "groupBy": [],
+          "measurement": "covid19re.Re",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "re_high"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Re estimate",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "description": "cases  over the last 14 days / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 60,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 9,
+        "y": 2
+      },
+      "id": 164,
+      "interval": null,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Incidence / 14 days",
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 12,
+        "y": 2
+      },
+      "id": 326,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^h2\\.Deaths.death_rate$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "death_rate"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Death rate",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 15,
+        "y": 2
+      },
+      "id": 369,
+      "interval": null,
+      "legend": {
+        "percentage": false,
+        "show": false,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "!=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Cases / canton",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 18,
+        "y": 2
+      },
+      "id": 482,
+      "interval": null,
+      "legend": {
+        "percentage": false,
+        "show": false,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "!=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Incidence / 14 days / canton",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": ""
+      },
+      "datasource": null,
+      "description": "cases / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 21,
+        "y": 2
+      },
+      "id": 371,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "percentageDecimals": 1,
+        "show": false,
+        "sideWidth": null,
+        "values": true
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": "1",
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Prevalence",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "!=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Prevalence / canton",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
     },
     {
       "aliasColors": {},
@@ -370,9 +913,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
-        "w": 10,
-        "x": 3,
-        "y": 2
+        "w": 12,
+        "x": 0,
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 10,
@@ -556,14 +1099,13 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Tests CH",
+      "title": "Tests",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -612,9 +1154,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
-        "w": 11,
-        "x": 13,
-        "y": 2
+        "w": 12,
+        "x": 12,
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 12,
@@ -765,14 +1307,13 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Positive tests ratio CH",
+      "title": "Positive tests ratio",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -806,86 +1347,6 @@
       }
     },
     {
-      "cacheTimeout": null,
-      "datasource": null,
-      "description": "cases  over the last 14 days / 100k population",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "max": 60,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 60
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 0,
-        "y": 11
-      },
-      "id": 164,
-      "interval": null,
-      "links": [],
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "7.1.5",
-      "targets": [
-        {
-          "groupBy": [],
-          "measurement": "h2.Confirmed",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "incidence_14d"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Incidence / 14 days CH",
-      "transparent": true,
-      "type": "gauge"
-    },
-    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -901,9 +1362,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 10,
-        "x": 3,
-        "y": 12
+        "w": 12,
+        "x": 0,
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 144,
@@ -1098,13 +1559,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cases CH",
+      "title": "Cases",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -1153,9 +1613,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 11,
-        "x": 13,
-        "y": 12
+        "w": 12,
+        "x": 12,
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 250,
@@ -1268,13 +1728,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deaths CH",
+      "title": "Deaths",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -1307,49 +1766,86 @@
       }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": null,
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "percentunit"
+          "custom": {}
         },
         "overrides": []
       },
+      "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
-        "h": 4,
-        "w": 3,
+        "h": 8,
+        "w": 12,
         "x": 0,
-        "y": 15
+        "y": 28
       },
-      "id": 326,
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "/^h2\\.Deaths.death_rate$/",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": false
+      "hiddenSeries": false,
+      "id": 418,
+      "legend": {
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
       },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
       "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "seriesOverrides": [
+        {
+          "alias": "high",
+          "color": "#5794F2",
+          "fillBelowTo": "mean",
+          "lines": false
+        },
+        {
+          "alias": "mean",
+          "color": "#5794F2",
+          "fillBelowTo": "low"
+        },
+        {
+          "alias": "low",
+          "color": "#5794F2",
+          "lines": false
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "groupBy": [],
-          "measurement": "h2.Deaths",
+          "alias": "mean",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "covid19re.Re",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1358,9 +1854,99 @@
             [
               {
                 "params": [
-                  "death_rate"
+                  "re_median"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "low",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "covid19re.Re",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "re_low"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "high",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "covid19re.Re",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "re_high"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
               }
             ]
           ],
@@ -1373,11 +1959,298 @@
           ]
         }
       ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": false,
+          "line": true,
+          "op": "gt",
+          "value": 1,
+          "yaxis": "left"
+        }
+      ],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
-      "title": "Death rate CH",
-      "transparent": true,
-      "type": "gauge"
+      "title": "Re estimate",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 1,
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "decimals": 2,
+      "description": "TODO",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 419,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "seriesOverrides": [
+        {
+          "alias": "deaths / cases",
+          "color": "#F2495C",
+          "linewidth": 3,
+          "yaxis": 2
+        },
+        {
+          "alias": "confirmed cases",
+          "dashLength": 1,
+          "dashes": true,
+          "spaceLength": 3
+        },
+        {
+          "alias": "deaths",
+          "dashLength": 1,
+          "dashes": true,
+          "spaceLength": 3
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "confirmed cases",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "deaths",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "total"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "deaths / cases",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "death_rate"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Death rate",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percentunit",
+          "label": "death rate",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "datasource": null,
@@ -1408,9 +2281,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 13,
+        "w": 12,
         "x": 0,
-        "y": 21
+        "y": 36
       },
       "id": 367,
       "options": {
@@ -1497,57 +2370,72 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Incidence / 14 days",
-      "transparent": true,
       "type": "bargauge"
     },
     {
       "aliasColors": {},
-      "breakPoint": "50%",
-      "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": null,
-      "description": "",
+      "description": "TODO",
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "fontSize": "80%",
-      "format": "none",
+      "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 5,
-        "x": 13,
-        "y": 21
+        "w": 12,
+        "x": 12,
+        "y": 36
       },
-      "id": 369,
-      "interval": null,
+      "hiddenSeries": false,
+      "id": 420,
       "legend": {
-        "percentage": false,
-        "show": false,
-        "values": false
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
       },
-      "legendType": "Right side",
-      "links": [],
-      "nullPointMode": "connected",
-      "pieType": "donut",
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
       "pluginVersion": "7.1.5",
-      "strokeWidth": 1,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "alias": "$tag_canton",
+          "alias": "incidence",
           "groupBy": [
             {
               "params": [
-                "canton"
+                "$__interval"
               ],
-              "type": "tag"
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
             }
           ],
+          "hide": false,
           "measurement": "h2.Confirmed",
           "orderByTime": "ASC",
           "policy": "default",
@@ -1557,116 +2445,75 @@
             [
               {
                 "params": [
-                  "sum"
+                  "incidence"
                 ],
                 "type": "field"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Cases / canton",
-      "transparent": true,
-      "type": "grafana-piechart-panel",
-      "valueName": "current"
-    },
-    {
-      "aliasColors": {},
-      "breakPoint": "50%",
-      "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": ""
-      },
-      "datasource": null,
-      "description": "cases / 100k population",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
               },
               {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "fontSize": "80%",
-      "format": "none",
-      "gridPos": {
-        "h": 8,
-        "w": 5,
-        "x": 18,
-        "y": 21
-      },
-      "id": 371,
-      "interval": null,
-      "legend": {
-        "percentage": true,
-        "percentageDecimals": 1,
-        "show": false,
-        "sideWidth": null,
-        "values": true
-      },
-      "legendType": "Right side",
-      "links": [],
-      "nullPointMode": "connected",
-      "pieType": "donut",
-      "pluginVersion": "7.1.5",
-      "strokeWidth": "1",
-      "targets": [
-        {
-          "alias": "$tag_canton",
-          "groupBy": [
-            {
-              "params": [
-                "canton"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "h2.Prevalence",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "prevalence"
-                ],
-                "type": "field"
+                "params": [],
+                "type": "mean"
               }
             ]
           ],
           "tags": [
             {
               "key": "canton",
-              "operator": "!=",
+              "operator": "=",
               "value": "CH"
             }
           ]
         }
       ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": true,
+          "line": false,
+          "op": "gt",
+          "value": 60,
+          "yaxis": "left"
+        }
+      ],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
-      "title": "Prevalence / canton",
-      "transparent": true,
-      "type": "grafana-piechart-panel",
-      "valueName": "current"
+      "title": "Incidence / 14 days",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "collapsed": false,
@@ -1675,7 +2522,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 44
       },
       "id": 26,
       "panels": [],
@@ -1711,9 +2558,9 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 13,
+        "w": 12,
         "x": 0,
-        "y": 30
+        "y": 45
       },
       "id": 370,
       "options": {
@@ -1799,8 +2646,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Incidence / 14 days $canton",
-      "transparent": true,
+      "title": "Incidence / 14 days - $canton",
       "type": "bargauge"
     },
     {
@@ -1823,9 +2669,9 @@
       "format": "none",
       "gridPos": {
         "h": 6,
-        "w": 5,
-        "x": 13,
-        "y": 30
+        "w": 4,
+        "x": 12,
+        "y": 45
       },
       "id": 372,
       "interval": null,
@@ -1877,8 +2723,85 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Cases / $canton",
-      "transparent": true,
+      "title": "Cases - $canton",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 16,
+        "y": 45
+      },
+      "id": 451,
+      "interval": null,
+      "legend": {
+        "percentage": false,
+        "show": false,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Incidence / 14 days - $canton",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -1902,9 +2825,9 @@
       "format": "none",
       "gridPos": {
         "h": 6,
-        "w": 5,
-        "x": 18,
-        "y": 30
+        "w": 4,
+        "x": 20,
+        "y": 45
       },
       "id": 382,
       "interval": null,
@@ -1956,8 +2879,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Cases per 100k / $canton",
-      "transparent": true,
+      "title": "Prevalence - $canton",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -1980,7 +2902,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 36
+        "y": 51
       },
       "hiddenSeries": false,
       "id": 2,
@@ -2207,13 +3129,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cases $canton",
+      "title": "Cases - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -2266,10 +3187,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 36
+        "y": 51
       },
       "hiddenSeries": false,
-      "id": 383,
+      "id": 452,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2294,7 +3215,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -2495,13 +3416,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cases $canton",
+      "title": "Cases - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -2554,10 +3474,10 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 48
+        "y": 63
       },
       "hiddenSeries": false,
-      "id": 384,
+      "id": 453,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2582,7 +3502,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -2783,13 +3703,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cases $canton",
+      "title": "Cases - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -2842,10 +3761,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 48
+        "y": 63
       },
       "hiddenSeries": false,
-      "id": 385,
+      "id": 454,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2870,7 +3789,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3071,13 +3990,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cases $canton",
+      "title": "Cases - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -3154,7 +4072,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 60
+        "y": 75
       },
       "id": 52,
       "maxPerRow": 2,
@@ -3270,7 +4188,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Cases / day $canton",
+      "title": "New cases - day $canton",
       "transformations": [
         {
           "id": "organize",
@@ -3289,7 +4207,6 @@
           }
         }
       ],
-      "transparent": true,
       "type": "table"
     },
     {
@@ -3335,9 +4252,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 60
+        "y": 75
       },
-      "id": 386,
+      "id": 455,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -3351,7 +4268,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3453,7 +4370,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Cases / day $canton",
+      "title": "New cases - day $canton",
       "transformations": [
         {
           "id": "organize",
@@ -3472,7 +4389,6 @@
           }
         }
       ],
-      "transparent": true,
       "type": "table"
     },
     {
@@ -3518,9 +4434,9 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 66
+        "y": 81
       },
-      "id": 387,
+      "id": 456,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -3534,7 +4450,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3636,7 +4552,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Cases / day $canton",
+      "title": "New cases - day $canton",
       "transformations": [
         {
           "id": "organize",
@@ -3655,7 +4571,6 @@
           }
         }
       ],
-      "transparent": true,
       "type": "table"
     },
     {
@@ -3701,9 +4616,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 66
+        "y": 81
       },
-      "id": 388,
+      "id": 457,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -3717,7 +4632,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3819,7 +4734,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Cases / day $canton",
+      "title": "New cases - day $canton",
       "transformations": [
         {
           "id": "organize",
@@ -3838,7 +4753,6 @@
           }
         }
       ],
-      "transparent": true,
       "type": "table"
     },
     {
@@ -3876,9 +4790,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
-        "w": 12,
+        "w": 6,
         "x": 0,
-        "y": 72
+        "y": 87
       },
       "hiddenSeries": false,
       "id": 6,
@@ -3893,7 +4807,7 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "null",
       "percentage": false,
       "pluginVersion": "7.1.5",
@@ -3962,14 +4876,13 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Distribution of new cases / day $canton",
+      "title": "Distribution of new cases / day - $canton",
       "tooltip": {
         "shared": false,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": 10,
@@ -4042,12 +4955,12 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 72
+        "w": 6,
+        "x": 6,
+        "y": 87
       },
       "hiddenSeries": false,
-      "id": 389,
+      "id": 458,
       "legend": {
         "avg": false,
         "current": false,
@@ -4059,7 +4972,7 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "null",
       "percentage": false,
       "pluginVersion": "7.1.5",
@@ -4068,7 +4981,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -4130,14 +5043,13 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Distribution of new cases / day $canton",
+      "title": "Distribution of new cases / day - $canton",
       "tooltip": {
         "shared": false,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": 10,
@@ -4210,12 +5122,12 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
-        "w": 12,
-        "x": 0,
-        "y": 77
+        "w": 6,
+        "x": 12,
+        "y": 87
       },
       "hiddenSeries": false,
-      "id": 390,
+      "id": 459,
       "legend": {
         "avg": false,
         "current": false,
@@ -4227,7 +5139,7 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "null",
       "percentage": false,
       "pluginVersion": "7.1.5",
@@ -4236,7 +5148,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -4298,14 +5210,13 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Distribution of new cases / day $canton",
+      "title": "Distribution of new cases / day - $canton",
       "tooltip": {
         "shared": false,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": 10,
@@ -4378,12 +5289,12 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 77
+        "w": 6,
+        "x": 18,
+        "y": 87
       },
       "hiddenSeries": false,
-      "id": 391,
+      "id": 460,
       "legend": {
         "avg": false,
         "current": false,
@@ -4395,7 +5306,7 @@
       },
       "lines": false,
       "linewidth": 1,
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "null",
       "percentage": false,
       "pluginVersion": "7.1.5",
@@ -4404,7 +5315,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -4466,14 +5377,13 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Distribution of new cases / day $canton",
+      "title": "Distribution of new cases / day - $canton",
       "tooltip": {
         "shared": false,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": 10,
@@ -4518,7 +5428,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 82
+        "y": 92
       },
       "id": 285,
       "panels": [],
@@ -4544,7 +5454,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 83
+        "y": 93
       },
       "hiddenSeries": false,
       "id": 8,
@@ -4622,13 +5532,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New cases / day of the week $canton",
+      "title": "New cases / day of the week - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -4679,10 +5588,10 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 83
+        "y": 93
       },
       "hiddenSeries": false,
-      "id": 392,
+      "id": 461,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -4707,7 +5616,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -4759,13 +5668,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New cases / day of the week $canton",
+      "title": "New cases / day of the week - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -4816,10 +5724,10 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 90
+        "y": 100
       },
       "hiddenSeries": false,
-      "id": 393,
+      "id": 462,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -4844,7 +5752,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -4896,13 +5804,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New cases / day of the week $canton",
+      "title": "New cases / day of the week - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -4953,10 +5860,10 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 90
+        "y": 100
       },
       "hiddenSeries": false,
-      "id": 394,
+      "id": 463,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -4981,7 +5888,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5033,13 +5940,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "New cases / day of the week $canton",
+      "title": "New cases / day of the week - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -5091,9 +5997,9 @@
       "format": "none",
       "gridPos": {
         "h": 12,
-        "w": 12,
+        "w": 6,
         "x": 0,
-        "y": 97
+        "y": 107
       },
       "id": 14,
       "interval": null,
@@ -5103,7 +6009,7 @@
       },
       "legendType": "On graph",
       "links": [],
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
@@ -5158,8 +6064,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "New cases / day of week $canton",
-      "transparent": true,
+      "title": "New cases / day of week - $canton",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -5183,11 +6088,11 @@
       "format": "none",
       "gridPos": {
         "h": 12,
-        "w": 12,
-        "x": 12,
-        "y": 97
+        "w": 6,
+        "x": 6,
+        "y": 107
       },
-      "id": 395,
+      "id": 464,
       "interval": null,
       "legend": {
         "show": true,
@@ -5195,13 +6100,13 @@
       },
       "legendType": "On graph",
       "links": [],
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -5252,8 +6157,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "New cases / day of week $canton",
-      "transparent": true,
+      "title": "New cases / day of week - $canton",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -5277,11 +6181,11 @@
       "format": "none",
       "gridPos": {
         "h": 12,
-        "w": 12,
-        "x": 0,
-        "y": 109
+        "w": 6,
+        "x": 12,
+        "y": 107
       },
-      "id": 396,
+      "id": 465,
       "interval": null,
       "legend": {
         "show": true,
@@ -5289,13 +6193,13 @@
       },
       "legendType": "On graph",
       "links": [],
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -5346,8 +6250,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "New cases / day of week $canton",
-      "transparent": true,
+      "title": "New cases / day of week - $canton",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -5371,11 +6274,11 @@
       "format": "none",
       "gridPos": {
         "h": 12,
-        "w": 12,
-        "x": 12,
-        "y": 109
+        "w": 6,
+        "x": 18,
+        "y": 107
       },
-      "id": 397,
+      "id": 466,
       "interval": null,
       "legend": {
         "show": true,
@@ -5383,13 +6286,13 @@
       },
       "legendType": "On graph",
       "links": [],
-      "maxPerRow": 2,
+      "maxPerRow": 4,
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -5440,8 +6343,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "New cases / day of week $canton",
-      "transparent": true,
+      "title": "New cases / day of week - $canton",
       "type": "grafana-piechart-panel",
       "valueName": "current"
     },
@@ -5452,7 +6354,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 121
+        "y": 119
       },
       "id": 90,
       "panels": [],
@@ -5479,7 +6381,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 122
+        "y": 120
       },
       "hiddenSeries": false,
       "id": 88,
@@ -5617,13 +6519,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Hospitalised $canton",
+      "title": "Hospitalised - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -5676,10 +6577,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 122
+        "y": 120
       },
       "hiddenSeries": false,
-      "id": 398,
+      "id": 467,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5702,7 +6603,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5816,13 +6717,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Hospitalised $canton",
+      "title": "Hospitalised - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -5875,10 +6775,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 130
+        "y": 128
       },
       "hiddenSeries": false,
-      "id": 399,
+      "id": 468,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5901,7 +6801,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6015,13 +6915,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Hospitalised $canton",
+      "title": "Hospitalised - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -6074,10 +6973,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 130
+        "y": 128
       },
       "hiddenSeries": false,
-      "id": 400,
+      "id": 469,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6100,7 +6999,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6214,13 +7113,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Hospitalised $canton",
+      "title": "Hospitalised - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -6260,7 +7158,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 138
+        "y": 136
       },
       "id": 235,
       "panels": [],
@@ -6285,7 +7183,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 139
+        "y": 137
       },
       "hiddenSeries": false,
       "id": 237,
@@ -6419,13 +7317,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deaths / $canton",
+      "title": "Deaths - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -6475,10 +7372,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 139
+        "y": 137
       },
       "hiddenSeries": false,
-      "id": 401,
+      "id": 470,
       "legend": {
         "avg": false,
         "current": true,
@@ -6499,7 +7396,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6611,13 +7508,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deaths / $canton",
+      "title": "Deaths - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -6667,10 +7563,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 147
+        "y": 145
       },
       "hiddenSeries": false,
-      "id": 402,
+      "id": 471,
       "legend": {
         "avg": false,
         "current": true,
@@ -6691,7 +7587,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6803,13 +7699,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deaths / $canton",
+      "title": "Deaths - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -6859,10 +7754,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 147
+        "y": 145
       },
       "hiddenSeries": false,
-      "id": 403,
+      "id": 472,
       "legend": {
         "avg": false,
         "current": true,
@@ -6883,7 +7778,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6995,13 +7890,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deaths / $canton",
+      "title": "Deaths - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -7053,7 +7947,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 155
+        "y": 153
       },
       "hiddenSeries": false,
       "id": 248,
@@ -7231,21 +8125,26 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Death rate / $canton",
+      "title": "Death rate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -7298,10 +8197,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 155
+        "y": 153
       },
       "hiddenSeries": false,
-      "id": 404,
+      "id": 473,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7324,7 +8223,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -7478,21 +8377,26 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Death rate / $canton",
+      "title": "Death rate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -7545,10 +8449,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 163
+        "y": 161
       },
       "hiddenSeries": false,
-      "id": 405,
+      "id": 474,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7571,7 +8475,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -7725,21 +8629,26 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Death rate / $canton",
+      "title": "Death rate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -7792,10 +8701,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 163
+        "y": 161
       },
       "hiddenSeries": false,
-      "id": 406,
+      "id": 475,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7818,7 +8727,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -7972,21 +8881,26 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Death rate / $canton",
+      "title": "Death rate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
       "transformations": [],
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -8026,7 +8940,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 171
+        "y": 169
       },
       "id": 68,
       "panels": [],
@@ -8053,7 +8967,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 172
+        "y": 170
       },
       "hiddenSeries": false,
       "id": 50,
@@ -8249,13 +9163,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Re estimate $canton",
+      "title": "Re estimate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -8307,10 +9220,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 172
+        "y": 170
       },
       "hiddenSeries": false,
-      "id": 407,
+      "id": 476,
       "legend": {
         "avg": false,
         "current": true,
@@ -8331,7 +9244,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -8505,13 +9418,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Re estimate $canton",
+      "title": "Re estimate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -8563,10 +9475,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 180
+        "y": 178
       },
       "hiddenSeries": false,
-      "id": 408,
+      "id": 477,
       "legend": {
         "avg": false,
         "current": true,
@@ -8587,7 +9499,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -8761,13 +9673,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Re estimate $canton",
+      "title": "Re estimate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -8819,10 +9730,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 180
+        "y": 178
       },
       "hiddenSeries": false,
-      "id": 409,
+      "id": 478,
       "legend": {
         "avg": false,
         "current": true,
@@ -8843,7 +9754,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9017,13 +9928,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Re estimate $canton",
+      "title": "Re estimate - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -9063,7 +9973,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 188
+        "y": 186
       },
       "id": 116,
       "panels": [],
@@ -9089,7 +9999,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 189
+        "y": 187
       },
       "hiddenSeries": false,
       "id": 118,
@@ -9183,13 +10093,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Incidence / 14 days $canton",
+      "title": "Incidence / 14 days - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -9241,10 +10150,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 189
+        "y": 187
       },
       "hiddenSeries": false,
-      "id": 410,
+      "id": 479,
       "legend": {
         "avg": false,
         "current": true,
@@ -9265,7 +10174,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -9337,13 +10246,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Incidence / 14 days $canton",
+      "title": "Incidence / 14 days - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -9395,10 +10303,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 197
+        "y": 195
       },
       "hiddenSeries": false,
-      "id": 411,
+      "id": 480,
       "legend": {
         "avg": false,
         "current": true,
@@ -9419,7 +10327,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -9491,13 +10399,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Incidence / 14 days $canton",
+      "title": "Incidence / 14 days - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -9549,10 +10456,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 197
+        "y": 195
       },
       "hiddenSeries": false,
-      "id": 412,
+      "id": 481,
       "legend": {
         "avg": false,
         "current": true,
@@ -9573,7 +10480,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600970290876,
+      "repeatIteration": 1600973723916,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -9645,13 +10552,12 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Incidence / 14 days $canton",
+      "title": "Incidence / 14 days - $canton",
       "tooltip": {
         "shared": true,
         "sort": 0,
         "value_type": "individual"
       },
-      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -9741,5 +10647,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 142
+  "version": 155
 }
