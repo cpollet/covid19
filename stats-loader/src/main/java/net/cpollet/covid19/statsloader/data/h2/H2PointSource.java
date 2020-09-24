@@ -76,7 +76,7 @@ public class H2PointSource implements Source<DataPoint> {
                                 LocalDate.now(),
                                 Switzerland.CantonCode.CH,
                                 new H2Field(
-                                        "incidence_14d",
+                                        "incidence",
                                         casesPer100k(rs.getDouble("cases"), rs.getLong("total_pop"))
                                 )
 
