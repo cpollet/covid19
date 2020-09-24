@@ -59,7 +59,7 @@ public class H2PointSource implements Source<DataPoint> {
                                         new H2Field("avg_14d", rs.getDouble("avg_14d")),
                                         new H2Field(
                                                 "incidence",
-                                                incidence(
+                                                casesPer100k(
                                                         rs.getDouble("sum_14d"),
                                                         rs.getLong("male_pop") + rs.getLong("female_pop")
                                                 )
@@ -77,7 +77,7 @@ public class H2PointSource implements Source<DataPoint> {
                                 Switzerland.CantonCode.CH,
                                 new H2Field(
                                         "incidence_14d",
-                                        incidence(rs.getDouble("cases"), rs.getLong("total_pop"))
+                                        casesPer100k(rs.getDouble("cases"), rs.getLong("total_pop"))
                                 )
 
                         )
@@ -102,7 +102,7 @@ public class H2PointSource implements Source<DataPoint> {
                                         new H2Field("death_rate", rs.getDouble("total_deaths") / rs.getDouble("total_cases")),
                                         new H2Field(
                                                 "incidence",
-                                                incidence(
+                                                casesPer100k(
                                                         rs.getDouble("total_deaths"),
                                                         rs.getLong("male_pop") + rs.getLong("female_pop")
                                                 )
@@ -151,13 +151,13 @@ public class H2PointSource implements Source<DataPoint> {
                                 "  date, " +
                                 "  tests_negative, " +
                                 "  tests_positive, " +
-                                "  tests_total, "+
-                                "  avg(tests_total) over (rows between 6 preceding and current row) as avg_tests_total_7d, "+
-                                "  avg(tests_total) over (rows between 13 preceding and current row) as avg_tests_total_14d, "+
-                                "  sum(tests_positive) over (rows between 6 preceding and current row) as sum_tests_positive_7d, "+
-                                "  sum(tests_total) over (rows between 6 preceding and current row) as sum_tests_total_7d, "+
-                                "  sum(tests_positive) over (rows between 13 preceding and current row) as sum_tests_positive_14d, "+
-                                "  sum(tests_total) over (rows between 13 preceding and current row) as sum_tests_total_14d "+
+                                "  tests_total, " +
+                                "  avg(tests_total) over (rows between 6 preceding and current row) as avg_tests_total_7d, " +
+                                "  avg(tests_total) over (rows between 13 preceding and current row) as avg_tests_total_14d, " +
+                                "  sum(tests_positive) over (rows between 6 preceding and current row) as sum_tests_positive_7d, " +
+                                "  sum(tests_total) over (rows between 6 preceding and current row) as sum_tests_total_7d, " +
+                                "  sum(tests_positive) over (rows between 13 preceding and current row) as sum_tests_positive_14d, " +
+                                "  sum(tests_total) over (rows between 13 preceding and current row) as sum_tests_total_14d " +
                                 "from" +
                                 "  contiguous_covid_data " +
                                 "where" +
@@ -181,14 +181,42 @@ public class H2PointSource implements Source<DataPoint> {
                                                 "avg_posRatio_14d", rs.getDouble("sum_tests_positive_14d") / rs.getDouble("sum_tests_total_14d")
                                         )
                                 )
-
                         )
-                ).stream().map(r -> r.toPoint("h2.Tests"))
-
+                ).stream().map(r -> r.toPoint("h2.Tests")),
+                jdbcTemplate.query(
+                        "with " +
+                                "canton_population as (" +
+                                "  select canton, sum(count) as sum_population from population group by canton" +
+                                ") " +
+                                "select " +
+                                "  c.canton," +
+                                "  c.sum_population population," +
+                                "  sum(d.cases) cases " +
+                                "from" +
+                                "  canton_population c," +
+                                "  contiguous_covid_data d " +
+                                "where c.canton = d.canton " +
+                                "group by d.canton",
+                        (rs, rowNum) -> new H2Row(
+                                LocalDate.now(),
+                                Switzerland.CantonCode.valueOf(rs.getString("canton")),
+                                new H2Field("prevalence", casesPer100k(rs.getDouble("cases"), rs.getLong("population")))
+                        )
+                ).stream().map(r -> r.toPoint("h2.Prevalence")),
+                jdbcTemplate.query(
+                        "select " +
+                                "(select sum(count) from population) population," +
+                                "(select sum(cases) from contiguous_covid_data) cases",
+                        (rs, rowNum) -> new H2Row(
+                                LocalDate.now(),
+                                Switzerland.CantonCode.CH,
+                                new H2Field("prevalence", casesPer100k(rs.getDouble("cases"), rs.getLong("population")))
+                        )
+                ).stream().map(r -> r.toPoint("h2.Prevalence"))
         ).flatMap(Function.identity());
     }
 
-    private double incidence(double value, long population) {
+    private double casesPer100k(double value, long population) {
         return value / (double) population * 100_000.0;
     }
 }
