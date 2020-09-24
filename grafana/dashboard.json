@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1600809874026,
+  "iteration": 1600970290876,
   "links": [
     {
       "icon": "external link",
@@ -29,7 +29,7 @@
   ],
   "panels": [
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -38,141 +38,142 @@
         "y": 0
       },
       "id": 60,
-      "panels": [],
-      "title": "Info",
-      "type": "row"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 18,
-        "x": 0,
-        "y": 1
-      },
-      "id": 38,
-      "options": {
-        "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
-        "mode": "markdown"
-      },
-      "pluginVersion": "7.1.0",
-      "targets": [
+      "panels": [
         {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
             },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 7,
+            "x": 0,
+            "y": 1
+          },
+          "id": 38,
+          "options": {
+            "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
+            "mode": "markdown"
+          },
+          "pluginVersion": "7.1.0",
+          "targets": [
             {
-              "params": [
-                "null"
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
               ],
-              "type": "fill"
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
             }
           ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
-      "transparent": true,
-      "type": "text"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgb(145, 122, 104)",
-                "value": null
-              }
-            ]
-          }
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "",
+          "transparent": true,
+          "type": "text"
         },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 6,
-        "x": 18,
-        "y": 1
-      },
-      "id": 44,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.1.5",
-      "targets": [
         {
-          "alias": "",
-          "groupBy": [],
-          "measurement": "LastUpdate",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
+          "datasource": null,
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "rgb(145, 122, 104)",
+                    "value": null
+                  }
+                ]
               }
-            ]
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 6,
+            "x": 18,
+            "y": 1
+          },
+          "id": 44,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "7.1.5",
+          "targets": [
+            {
+              "alias": "",
+              "groupBy": [],
+              "measurement": "LastUpdate",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": []
+            }
           ],
-          "tags": []
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Last update",
+          "transparent": true,
+          "type": "stat"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Last update",
-      "transparent": true,
-      "type": "stat"
+      "title": "Info",
+      "type": "row"
     },
     {
       "collapsed": false,
@@ -181,7 +182,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 1
       },
       "id": 32,
       "panels": [],
@@ -209,17 +210,17 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 9,
         "w": 3,
         "x": 0,
-        "y": 8
+        "y": 2
       },
       "id": 20,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "auto",
-        "orientation": "horizontal",
+        "orientation": "auto",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -234,7 +235,7 @@
         {
           "alias": "Test",
           "groupBy": [],
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -258,7 +259,7 @@
         {
           "alias": "Positive",
           "groupBy": [],
-          "measurement": "foph.Tests",
+          "measurement": "h2.Tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -302,6 +303,32 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "alias": "Prevalence",
+          "groupBy": [],
+          "measurement": "h2.Prevalence",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         }
       ],
       "timeFrom": null,
@@ -345,7 +372,7 @@
         "h": 10,
         "w": 10,
         "x": 3,
-        "y": 8
+        "y": 2
       },
       "hiddenSeries": false,
       "id": 10,
@@ -587,7 +614,7 @@
         "h": 10,
         "w": 11,
         "x": 13,
-        "y": 8
+        "y": 2
       },
       "hiddenSeries": false,
       "id": 12,
@@ -781,7 +808,7 @@
     {
       "cacheTimeout": null,
       "datasource": null,
-      "description": "",
+      "description": "cases  over the last 14 days / 100k population",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -809,7 +836,7 @@
         "h": 4,
         "w": 3,
         "x": 0,
-        "y": 18
+        "y": 11
       },
       "id": 164,
       "interval": null,
@@ -876,7 +903,7 @@
         "h": 9,
         "w": 10,
         "x": 3,
-        "y": 18
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 144,
@@ -1128,7 +1155,7 @@
         "h": 9,
         "w": 11,
         "x": 13,
-        "y": 18
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 250,
@@ -1304,7 +1331,7 @@
         "h": 4,
         "w": 3,
         "x": 0,
-        "y": 22
+        "y": 15
       },
       "id": 326,
       "options": {
@@ -1353,18 +1380,586 @@
       "type": "gauge"
     },
     {
+      "datasource": null,
+      "description": "cases  over the last 14 days / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "max": 200,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 13,
+        "x": 0,
+        "y": 21
+      },
+      "id": 367,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": false
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "!=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Incidence / 14 days",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 13,
+        "y": 21
+      },
+      "id": 369,
+      "interval": null,
+      "legend": {
+        "percentage": false,
+        "show": false,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Cases / canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": ""
+      },
+      "datasource": null,
+      "description": "cases / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 18,
+        "y": 21
+      },
+      "id": 371,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "percentageDecimals": 1,
+        "show": false,
+        "sideWidth": null,
+        "values": true
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": "1",
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Prevalence",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "!=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Prevalence / canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
       "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 29
       },
       "id": 26,
       "panels": [],
       "title": "Cases $canton",
       "type": "row"
+    },
+    {
+      "datasource": null,
+      "description": "cases  over the last 14 days / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "max": 200,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 13,
+        "x": 0,
+        "y": 30
+      },
+      "id": 370,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": false
+      },
+      "pluginVersion": "7.1.5",
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Incidence / 14 days $canton",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 13,
+        "y": 30
+      },
+      "id": 372,
+      "interval": null,
+      "legend": {
+        "percentage": false,
+        "show": false,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Cases / $canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "cases / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 18,
+        "y": 30
+      },
+      "id": 382,
+      "interval": null,
+      "legend": {
+        "percentage": false,
+        "show": false,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.1.5",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Prevalence",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Cases per 100k / $canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
     },
     {
       "aliasColors": {},
@@ -1385,7 +1980,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 28
+        "y": 36
       },
       "hiddenSeries": false,
       "id": 2,
@@ -1671,10 +2266,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 28
+        "y": 36
       },
       "hiddenSeries": false,
-      "id": 342,
+      "id": 383,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1699,7 +2294,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -1959,10 +2554,10 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 40
+        "y": 48
       },
       "hiddenSeries": false,
-      "id": 343,
+      "id": 384,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1987,7 +2582,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -2247,10 +2842,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 40
+        "y": 48
       },
       "hiddenSeries": false,
-      "id": 344,
+      "id": 385,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2275,7 +2870,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -2559,7 +3154,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 52
+        "y": 60
       },
       "id": 52,
       "maxPerRow": 2,
@@ -2740,9 +3335,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 52
+        "y": 60
       },
-      "id": 345,
+      "id": 386,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -2756,7 +3351,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -2923,9 +3518,9 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 58
+        "y": 66
       },
-      "id": 346,
+      "id": 387,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -2939,7 +3534,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3106,9 +3701,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 58
+        "y": 66
       },
-      "id": 347,
+      "id": 388,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -3122,7 +3717,7 @@
       "pluginVersion": "7.1.5",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -3283,7 +3878,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 64
+        "y": 72
       },
       "hiddenSeries": false,
       "id": 6,
@@ -3449,10 +4044,10 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 64
+        "y": 72
       },
       "hiddenSeries": false,
-      "id": 348,
+      "id": 389,
       "legend": {
         "avg": false,
         "current": false,
@@ -3473,7 +4068,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -3617,10 +4212,10 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 77
       },
       "hiddenSeries": false,
-      "id": 349,
+      "id": 390,
       "legend": {
         "avg": false,
         "current": false,
@@ -3641,7 +4236,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -3785,10 +4380,10 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 69
+        "y": 77
       },
       "hiddenSeries": false,
-      "id": 350,
+      "id": 391,
       "legend": {
         "avg": false,
         "current": false,
@@ -3809,7 +4404,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -3917,939 +4512,938 @@
       }
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 74
+        "y": 82
       },
       "id": 285,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 0,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 0,
-            "y": 69
-          },
-          "hiddenSeries": false,
-          "id": 8,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "maxPerRow": 2,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pluginVersion": "7.1.5",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "repeat": "canton",
-          "repeatDirection": "h",
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "GE",
-              "value": "GE"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "Confirmed $tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "New cases / day of the week $canton",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 0,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 12,
-            "y": 69
-          },
-          "hiddenSeries": false,
-          "id": 336,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "maxPerRow": 2,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pluginVersion": "7.1.5",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1600804410503,
-          "repeatPanelId": 8,
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "VD",
-              "value": "VD"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "Confirmed $tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "New cases / day of the week $canton",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 0,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 0,
-            "y": 76
-          },
-          "hiddenSeries": false,
-          "id": 337,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "maxPerRow": 2,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pluginVersion": "7.1.5",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1600804410503,
-          "repeatPanelId": 8,
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "VS",
-              "value": "VS"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "Confirmed $tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "New cases / day of the week $canton",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 0,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 12,
-            "y": 76
-          },
-          "hiddenSeries": false,
-          "id": 338,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": true,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "maxPerRow": 2,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pluginVersion": "7.1.5",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1600804410503,
-          "repeatPanelId": 8,
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "ZH",
-              "value": "ZH"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "Confirmed $tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "New cases / day of the week $canton",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "breakPoint": "50%",
-          "cacheTimeout": null,
-          "combine": {
-            "label": "Others",
-            "threshold": 0
-          },
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fontSize": "80%",
-          "format": "none",
-          "gridPos": {
-            "h": 12,
-            "w": 12,
-            "x": 0,
-            "y": 83
-          },
-          "id": 14,
-          "interval": null,
-          "legend": {
-            "show": true,
-            "values": true
-          },
-          "legendType": "On graph",
-          "links": [],
-          "maxPerRow": 2,
-          "nullPointMode": "connected",
-          "pieType": "pie",
-          "pluginVersion": "7.1.5",
-          "repeat": "canton",
-          "repeatDirection": "h",
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "GE",
-              "value": "GE"
-            }
-          },
-          "strokeWidth": 1,
-          "targets": [
-            {
-              "alias": "$tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Confirmed / day of week $canton",
-          "transparent": true,
-          "type": "grafana-piechart-panel",
-          "valueName": "current"
-        },
-        {
-          "aliasColors": {},
-          "breakPoint": "50%",
-          "cacheTimeout": null,
-          "combine": {
-            "label": "Others",
-            "threshold": 0
-          },
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fontSize": "80%",
-          "format": "none",
-          "gridPos": {
-            "h": 12,
-            "w": 12,
-            "x": 12,
-            "y": 83
-          },
-          "id": 339,
-          "interval": null,
-          "legend": {
-            "show": true,
-            "values": true
-          },
-          "legendType": "On graph",
-          "links": [],
-          "maxPerRow": 2,
-          "nullPointMode": "connected",
-          "pieType": "pie",
-          "pluginVersion": "7.1.5",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1600804410503,
-          "repeatPanelId": 14,
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "VD",
-              "value": "VD"
-            }
-          },
-          "strokeWidth": 1,
-          "targets": [
-            {
-              "alias": "$tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Confirmed / day of week $canton",
-          "transparent": true,
-          "type": "grafana-piechart-panel",
-          "valueName": "current"
-        },
-        {
-          "aliasColors": {},
-          "breakPoint": "50%",
-          "cacheTimeout": null,
-          "combine": {
-            "label": "Others",
-            "threshold": 0
-          },
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fontSize": "80%",
-          "format": "none",
-          "gridPos": {
-            "h": 12,
-            "w": 12,
-            "x": 0,
-            "y": 95
-          },
-          "id": 340,
-          "interval": null,
-          "legend": {
-            "show": true,
-            "values": true
-          },
-          "legendType": "On graph",
-          "links": [],
-          "maxPerRow": 2,
-          "nullPointMode": "connected",
-          "pieType": "pie",
-          "pluginVersion": "7.1.5",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1600804410503,
-          "repeatPanelId": 14,
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "VS",
-              "value": "VS"
-            }
-          },
-          "strokeWidth": 1,
-          "targets": [
-            {
-              "alias": "$tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Confirmed / day of week $canton",
-          "transparent": true,
-          "type": "grafana-piechart-panel",
-          "valueName": "current"
-        },
-        {
-          "aliasColors": {},
-          "breakPoint": "50%",
-          "cacheTimeout": null,
-          "combine": {
-            "label": "Others",
-            "threshold": 0
-          },
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fontSize": "80%",
-          "format": "none",
-          "gridPos": {
-            "h": 12,
-            "w": 12,
-            "x": 12,
-            "y": 95
-          },
-          "id": 341,
-          "interval": null,
-          "legend": {
-            "show": true,
-            "values": true
-          },
-          "legendType": "On graph",
-          "links": [],
-          "maxPerRow": 2,
-          "nullPointMode": "connected",
-          "pieType": "pie",
-          "pluginVersion": "7.1.5",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1600804410503,
-          "repeatPanelId": 14,
-          "scopedVars": {
-            "canton": {
-              "selected": true,
-              "text": "ZH",
-              "value": "ZH"
-            }
-          },
-          "strokeWidth": 1,
-          "targets": [
-            {
-              "alias": "$tag_dayOfWeek",
-              "groupBy": [
-                {
-                  "params": [
-                    "dayOfWeek"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "h2.Confirmed",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "new"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "canton",
-                  "operator": "=~",
-                  "value": "/^$canton$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Confirmed / day of week $canton",
-          "transparent": true,
-          "type": "grafana-piechart-panel",
-          "valueName": "current"
-        }
-      ],
+      "panels": [],
       "title": "Case / day $canton",
       "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 83
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": "canton",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "GE",
+          "value": "GE"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Confirmed $tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "New cases / day of the week $canton",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 83
+      },
+      "hiddenSeries": false,
+      "id": 392,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1600970290876,
+      "repeatPanelId": 8,
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "VD",
+          "value": "VD"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Confirmed $tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "New cases / day of the week $canton",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 90
+      },
+      "hiddenSeries": false,
+      "id": 393,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1600970290876,
+      "repeatPanelId": 8,
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "VS",
+          "value": "VS"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Confirmed $tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "New cases / day of the week $canton",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 90
+      },
+      "hiddenSeries": false,
+      "id": 394,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1600970290876,
+      "repeatPanelId": 8,
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "ZH",
+          "value": "ZH"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Confirmed $tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "New cases / day of the week $canton",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 97
+      },
+      "id": 14,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "pieType": "pie",
+      "pluginVersion": "7.1.5",
+      "repeat": "canton",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "GE",
+          "value": "GE"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "New cases / day of week $canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 97
+      },
+      "id": 395,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "pieType": "pie",
+      "pluginVersion": "7.1.5",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1600970290876,
+      "repeatPanelId": 14,
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "VD",
+          "value": "VD"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "New cases / day of week $canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 109
+      },
+      "id": 396,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "pieType": "pie",
+      "pluginVersion": "7.1.5",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1600970290876,
+      "repeatPanelId": 14,
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "VS",
+          "value": "VS"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "New cases / day of week $canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "none",
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 109
+      },
+      "id": 397,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxPerRow": 2,
+      "nullPointMode": "connected",
+      "pieType": "pie",
+      "pluginVersion": "7.1.5",
+      "repeat": null,
+      "repeatDirection": "h",
+      "repeatIteration": 1600970290876,
+      "repeatPanelId": 14,
+      "scopedVars": {
+        "canton": {
+          "selected": true,
+          "text": "ZH",
+          "value": "ZH"
+        }
+      },
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "$tag_dayOfWeek",
+          "groupBy": [
+            {
+              "params": [
+                "dayOfWeek"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=~",
+              "value": "/^$canton$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "New cases / day of week $canton",
+      "transparent": true,
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
     },
     {
       "collapsed": false,
@@ -4858,7 +5452,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 75
+        "y": 121
       },
       "id": 90,
       "panels": [],
@@ -4885,7 +5479,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 76
+        "y": 122
       },
       "hiddenSeries": false,
       "id": 88,
@@ -5082,10 +5676,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 76
+        "y": 122
       },
       "hiddenSeries": false,
-      "id": 351,
+      "id": 398,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5108,7 +5702,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5281,10 +5875,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 84
+        "y": 130
       },
       "hiddenSeries": false,
-      "id": 352,
+      "id": 399,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5307,7 +5901,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5480,10 +6074,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 84
+        "y": 130
       },
       "hiddenSeries": false,
-      "id": 353,
+      "id": 400,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -5506,7 +6100,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -5666,7 +6260,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 92
+        "y": 138
       },
       "id": 235,
       "panels": [],
@@ -5691,7 +6285,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 93
+        "y": 139
       },
       "hiddenSeries": false,
       "id": 237,
@@ -5881,10 +6475,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 93
+        "y": 139
       },
       "hiddenSeries": false,
-      "id": 354,
+      "id": 401,
       "legend": {
         "avg": false,
         "current": true,
@@ -5905,7 +6499,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6073,10 +6667,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 101
+        "y": 147
       },
       "hiddenSeries": false,
-      "id": 355,
+      "id": 402,
       "legend": {
         "avg": false,
         "current": true,
@@ -6097,7 +6691,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6265,10 +6859,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 101
+        "y": 147
       },
       "hiddenSeries": false,
-      "id": 356,
+      "id": 403,
       "legend": {
         "avg": false,
         "current": true,
@@ -6289,7 +6883,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -6459,7 +7053,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 109
+        "y": 155
       },
       "hiddenSeries": false,
       "id": 248,
@@ -6704,10 +7298,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 109
+        "y": 155
       },
       "hiddenSeries": false,
-      "id": 357,
+      "id": 404,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6730,7 +7324,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -6951,10 +7545,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 117
+        "y": 163
       },
       "hiddenSeries": false,
-      "id": 358,
+      "id": 405,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6977,7 +7571,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -7198,10 +7792,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 117
+        "y": 163
       },
       "hiddenSeries": false,
-      "id": 359,
+      "id": 406,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7224,7 +7818,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -7432,7 +8026,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 125
+        "y": 171
       },
       "id": 68,
       "panels": [],
@@ -7459,7 +8053,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 126
+        "y": 172
       },
       "hiddenSeries": false,
       "id": 50,
@@ -7713,10 +8307,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 126
+        "y": 172
       },
       "hiddenSeries": false,
-      "id": 360,
+      "id": 407,
       "legend": {
         "avg": false,
         "current": true,
@@ -7737,7 +8331,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -7969,10 +8563,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 134
+        "y": 180
       },
       "hiddenSeries": false,
-      "id": 361,
+      "id": 408,
       "legend": {
         "avg": false,
         "current": true,
@@ -7993,7 +8587,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -8225,10 +8819,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 134
+        "y": 180
       },
       "hiddenSeries": false,
-      "id": 362,
+      "id": 409,
       "legend": {
         "avg": false,
         "current": true,
@@ -8249,7 +8843,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -8469,7 +9063,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 142
+        "y": 188
       },
       "id": 116,
       "panels": [],
@@ -8495,7 +9089,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 143
+        "y": 189
       },
       "hiddenSeries": false,
       "id": 118,
@@ -8647,10 +9241,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 143
+        "y": 189
       },
       "hiddenSeries": false,
-      "id": 363,
+      "id": 410,
       "legend": {
         "avg": false,
         "current": true,
@@ -8671,7 +9265,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -8801,10 +9395,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 151
+        "y": 197
       },
       "hiddenSeries": false,
-      "id": 364,
+      "id": 411,
       "legend": {
         "avg": false,
         "current": true,
@@ -8825,7 +9419,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -8955,10 +9549,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 151
+        "y": 197
       },
       "hiddenSeries": false,
-      "id": 365,
+      "id": 412,
       "legend": {
         "avg": false,
         "current": true,
@@ -8979,7 +9573,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600809874026,
+      "repeatIteration": 1600970290876,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -9147,5 +9741,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 137
+  "version": 142
 }
