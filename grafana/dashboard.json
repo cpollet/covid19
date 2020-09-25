@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1601051446984,
+  "iteration": 1601064947867,
   "links": [
     {
       "icon": "external link",
@@ -302,7 +302,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         },
         {
           "alias": "Prevalence",
@@ -491,6 +497,10 @@
                 "value": null
               },
               {
+                "color": "#EAB839",
+                "value": 55
+              },
+              {
                 "color": "red",
                 "value": 60
               }
@@ -589,9 +599,9 @@
       "options": {
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
-          "fields": "/^h2\\.Deaths.death_rate$/",
+          "fields": "/^h2\\.Deaths.rate$/",
           "values": false
         },
         "showThresholdLabels": false,
@@ -610,7 +620,7 @@
             [
               {
                 "params": [
-                  "death_rate"
+                  "rate"
                 ],
                 "type": "field"
               }
@@ -827,7 +837,7 @@
       "id": 371,
       "interval": null,
       "legend": {
-        "percentage": true,
+        "percentage": false,
         "percentageDecimals": 1,
         "show": false,
         "sideWidth": null,
@@ -1446,11 +1456,17 @@
               },
               {
                 "params": [],
-                "type": "sum"
+                "type": "last"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         },
         {
           "alias": "new cases",
@@ -1487,7 +1503,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         },
         {
           "alias": "new cases, moving avg over 7 days",
@@ -1520,11 +1542,17 @@
               },
               {
                 "params": [],
-                "type": "sum"
+                "type": "mean"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         },
         {
           "alias": "new cases, moving avg over 14 days",
@@ -1557,11 +1585,17 @@
               },
               {
                 "params": [],
-                "type": "sum"
+                "type": "mean"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -1686,7 +1720,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -1696,7 +1730,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         },
         {
           "alias": "new",
@@ -1733,7 +1773,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -1797,6 +1843,380 @@
         "w": 12,
         "x": 0,
         "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 420,
+      "legend": {
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "incidence",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": true,
+          "line": false,
+          "op": "gt",
+          "value": 60,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Incidence / 14 days",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "decimals": 2,
+      "description": "TODO",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 419,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "seriesOverrides": [
+        {
+          "alias": "deaths / cases",
+          "color": "#F2495C",
+          "linewidth": 3,
+          "yaxis": 2
+        },
+        {
+          "alias": "confirmed cases",
+          "dashLength": 1,
+          "dashes": true,
+          "spaceLength": 3
+        },
+        {
+          "alias": "deaths",
+          "dashLength": 1,
+          "dashes": true,
+          "spaceLength": 3
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "confirmed cases",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "deaths",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "deaths / cases",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rate"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Death rate",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "decimals": 2,
+          "format": "percentunit",
+          "label": "death rate",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 36
       },
       "hiddenSeries": false,
       "id": 418,
@@ -2009,397 +2429,6 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "decimals": 2,
-      "description": "TODO",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 28
-      },
-      "hiddenSeries": false,
-      "id": 419,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxPerRow": 2,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.0",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeatDirection": "h",
-      "seriesOverrides": [
-        {
-          "alias": "deaths / cases",
-          "color": "#F2495C",
-          "linewidth": 3,
-          "yaxis": 2
-        },
-        {
-          "alias": "confirmed cases",
-          "dashLength": 1,
-          "dashes": true,
-          "spaceLength": 3
-        },
-        {
-          "alias": "deaths",
-          "dashLength": 1,
-          "dashes": true,
-          "spaceLength": 3
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "confirmed cases",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "h2.Cases",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "sum"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "canton",
-              "operator": "=",
-              "value": "CH"
-            }
-          ]
-        },
-        {
-          "alias": "deaths",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "h2.Deaths",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "total"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "canton",
-              "operator": "=",
-              "value": "CH"
-            }
-          ]
-        },
-        {
-          "alias": "deaths / cases",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "h2.Deaths",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "death_rate"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "canton",
-              "operator": "=",
-              "value": "CH"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Death rate",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transformations": [],
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "none",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "decimals": 2,
-          "format": "percentunit",
-          "label": "death rate",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "description": "TODO",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 36
-      },
-      "hiddenSeries": false,
-      "id": 420,
-      "legend": {
-        "avg": false,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxPerRow": 2,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.0",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeatDirection": "h",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "incidence",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "h2.Cases",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "incidence"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "canton",
-              "operator": "=",
-              "value": "CH"
-            }
-          ]
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": false,
-          "op": "gt",
-          "value": 60,
-          "yaxis": "left"
-        }
-      ],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Incidence / 14 days",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "none",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
           "show": true
         },
         {
@@ -3241,7 +3270,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3530,7 +3559,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3819,7 +3848,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4299,7 +4328,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4481,7 +4510,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4663,7 +4692,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -5017,7 +5046,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5186,7 +5215,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5355,7 +5384,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5661,7 +5690,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5799,7 +5828,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5937,7 +5966,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6154,7 +6183,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6246,7 +6275,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6338,7 +6367,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6654,7 +6683,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6854,7 +6883,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7054,7 +7083,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7309,7 +7338,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -7456,7 +7485,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7502,7 +7531,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -7649,7 +7678,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7695,7 +7724,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -7842,7 +7871,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7888,7 +7917,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -8139,7 +8168,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -8182,7 +8211,7 @@
             [
               {
                 "params": [
-                  "death_rate"
+                  "rate"
                 ],
                 "type": "field"
               },
@@ -8292,7 +8321,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8393,7 +8422,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -8436,7 +8465,7 @@
             [
               {
                 "params": [
-                  "death_rate"
+                  "rate"
                 ],
                 "type": "field"
               },
@@ -8546,7 +8575,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8647,7 +8676,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -8690,7 +8719,7 @@
             [
               {
                 "params": [
-                  "death_rate"
+                  "rate"
                 ],
                 "type": "field"
               },
@@ -8800,7 +8829,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8901,7 +8930,7 @@
             [
               {
                 "params": [
-                  "total"
+                  "sum"
                 ],
                 "type": "field"
               },
@@ -8944,7 +8973,7 @@
             [
               {
                 "params": [
-                  "death_rate"
+                  "rate"
                 ],
                 "type": "field"
               },
@@ -9322,7 +9351,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9579,7 +9608,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9836,7 +9865,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10261,7 +10290,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10416,7 +10445,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10571,7 +10600,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051446984,
+      "repeatIteration": 1601064947867,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10738,5 +10767,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 158
+  "version": 165
 }
