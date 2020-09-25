@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1600973723916,
+  "iteration": 1601051058723,
   "links": [
     {
       "icon": "external link",
@@ -142,7 +142,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "7.1.5",
+          "pluginVersion": "7.2.0",
           "targets": [
             {
               "alias": "",
@@ -230,7 +230,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
           "alias": "Test",
@@ -387,7 +387,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
           "alias": "low",
@@ -521,7 +521,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
           "groupBy": [],
@@ -597,7 +597,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
           "groupBy": [],
@@ -717,7 +717,7 @@
         "threshold": 0
       },
       "datasource": null,
-      "description": "",
+      "description": "cases overs the last 14 days / 100k population",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -932,8 +932,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1172,8 +1175,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1381,8 +1387,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1632,8 +1641,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1801,8 +1813,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2049,8 +2064,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2253,126 +2271,6 @@
       }
     },
     {
-      "datasource": null,
-      "description": "cases  over the last 14 days / 100k population",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 0,
-          "mappings": [],
-          "max": 200,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 60
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 36
-      },
-      "id": 367,
-      "options": {
-        "displayMode": "basic",
-        "orientation": "vertical",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": false
-      },
-      "pluginVersion": "7.1.5",
-      "targets": [
-        {
-          "alias": "$tag_canton",
-          "groupBy": [
-            {
-              "params": [
-                "canton"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "h2.Confirmed",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "incidence"
-                ],
-                "type": "field"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "canton",
-              "operator": "=",
-              "value": "CH"
-            }
-          ]
-        },
-        {
-          "alias": "$tag_canton",
-          "groupBy": [
-            {
-              "params": [
-                "canton"
-              ],
-              "type": "tag"
-            }
-          ],
-          "measurement": "h2.Confirmed",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "incidence"
-                ],
-                "type": "field"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "canton",
-              "operator": "!=",
-              "value": "CH"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Incidence / 14 days",
-      "type": "bargauge"
-    },
-    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -2408,8 +2306,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2516,13 +2417,133 @@
       }
     },
     {
+      "datasource": null,
+      "description": "cases  over the last 14 days / 100k population",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "max": 200,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 44
+      },
+      "id": 367,
+      "options": {
+        "displayMode": "basic",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": false
+      },
+      "pluginVersion": "7.2.0",
+      "targets": [
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "$tag_canton",
+          "groupBy": [
+            {
+              "params": [
+                "canton"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "h2.Confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "incidence"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "!=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Incidence / 14 days",
+      "type": "bargauge"
+    },
+    {
       "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 44
+        "y": 48
       },
       "id": 26,
       "panels": [],
@@ -2560,7 +2581,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 45
+        "y": 49
       },
       "id": 370,
       "options": {
@@ -2575,7 +2596,7 @@
         },
         "showUnfilled": false
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "targets": [
         {
           "alias": "$tag_canton",
@@ -2671,7 +2692,7 @@
         "h": 6,
         "w": 4,
         "x": 12,
-        "y": 45
+        "y": 49
       },
       "id": 372,
       "interval": null,
@@ -2749,7 +2770,7 @@
         "h": 6,
         "w": 4,
         "x": 16,
-        "y": 45
+        "y": 49
       },
       "id": 451,
       "interval": null,
@@ -2827,7 +2848,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 45
+        "y": 49
       },
       "id": 382,
       "interval": null,
@@ -2902,7 +2923,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 51
+        "y": 55
       },
       "hiddenSeries": false,
       "id": 2,
@@ -2923,8 +2944,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 0.5,
       "points": false,
       "renderer": "flot",
@@ -3187,10 +3211,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 51
+        "y": 55
       },
       "hiddenSeries": false,
-      "id": 452,
+      "id": 483,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -3208,14 +3232,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 0.5,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3474,10 +3500,10 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 63
+        "y": 67
       },
       "hiddenSeries": false,
-      "id": 453,
+      "id": 484,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -3495,14 +3521,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 0.5,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3761,10 +3789,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 63
+        "y": 67
       },
       "hiddenSeries": false,
-      "id": 454,
+      "id": 485,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -3782,14 +3810,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 0.5,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4035,7 +4065,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "noValue": "-",
@@ -4072,7 +4103,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 75
+        "y": 79
       },
       "id": 52,
       "maxPerRow": 2,
@@ -4085,7 +4116,7 @@
           }
         ]
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "repeat": "canton",
       "repeatDirection": "h",
       "scopedVars": {
@@ -4215,7 +4246,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "noValue": "-",
@@ -4252,9 +4284,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 75
+        "y": 79
       },
-      "id": 455,
+      "id": 486,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -4265,10 +4297,9 @@
           }
         ]
       },
-      "pluginVersion": "7.1.5",
-      "repeat": null,
+      "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4397,7 +4428,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "noValue": "-",
@@ -4434,9 +4466,9 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 81
+        "y": 85
       },
-      "id": 456,
+      "id": 487,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -4447,10 +4479,9 @@
           }
         ]
       },
-      "pluginVersion": "7.1.5",
-      "repeat": null,
+      "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4579,7 +4610,8 @@
       "fieldConfig": {
         "defaults": {
           "custom": {
-            "align": null
+            "align": null,
+            "filterable": false
           },
           "mappings": [],
           "noValue": "-",
@@ -4616,9 +4648,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 81
+        "y": 85
       },
-      "id": 457,
+      "id": 488,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -4629,10 +4661,9 @@
           }
         ]
       },
-      "pluginVersion": "7.1.5",
-      "repeat": null,
+      "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4792,7 +4823,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 87
+        "y": 91
       },
       "hiddenSeries": false,
       "id": 6,
@@ -4809,8 +4840,11 @@
       "linewidth": 1,
       "maxPerRow": 4,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4957,10 +4991,10 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 87
+        "y": 91
       },
       "hiddenSeries": false,
-      "id": 458,
+      "id": 489,
       "legend": {
         "avg": false,
         "current": false,
@@ -4974,14 +5008,16 @@
       "linewidth": 1,
       "maxPerRow": 4,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5124,10 +5160,10 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 87
+        "y": 91
       },
       "hiddenSeries": false,
-      "id": 459,
+      "id": 490,
       "legend": {
         "avg": false,
         "current": false,
@@ -5141,14 +5177,16 @@
       "linewidth": 1,
       "maxPerRow": 4,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5291,10 +5329,10 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 87
+        "y": 91
       },
       "hiddenSeries": false,
-      "id": 460,
+      "id": 491,
       "legend": {
         "avg": false,
         "current": false,
@@ -5308,14 +5346,16 @@
       "linewidth": 1,
       "maxPerRow": 4,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5428,7 +5468,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 92
+        "y": 96
       },
       "id": 285,
       "panels": [],
@@ -5454,7 +5494,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 93
+        "y": 97
       },
       "hiddenSeries": false,
       "id": 8,
@@ -5475,8 +5515,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -5588,10 +5631,10 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 93
+        "y": 97
       },
       "hiddenSeries": false,
-      "id": 461,
+      "id": 492,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -5609,14 +5652,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5724,10 +5769,10 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 100
+        "y": 104
       },
       "hiddenSeries": false,
-      "id": 462,
+      "id": 493,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -5745,14 +5790,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5860,10 +5907,10 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 100
+        "y": 104
       },
       "hiddenSeries": false,
-      "id": 463,
+      "id": 494,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -5881,14 +5928,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5999,7 +6048,7 @@
         "h": 12,
         "w": 6,
         "x": 0,
-        "y": 107
+        "y": 111
       },
       "id": 14,
       "interval": null,
@@ -6090,9 +6139,9 @@
         "h": 12,
         "w": 6,
         "x": 6,
-        "y": 107
+        "y": 111
       },
-      "id": 464,
+      "id": 495,
       "interval": null,
       "legend": {
         "show": true,
@@ -6104,9 +6153,8 @@
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6183,9 +6231,9 @@
         "h": 12,
         "w": 6,
         "x": 12,
-        "y": 107
+        "y": 111
       },
-      "id": 465,
+      "id": 496,
       "interval": null,
       "legend": {
         "show": true,
@@ -6197,9 +6245,8 @@
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6276,9 +6323,9 @@
         "h": 12,
         "w": 6,
         "x": 18,
-        "y": 107
+        "y": 111
       },
-      "id": 466,
+      "id": 497,
       "interval": null,
       "legend": {
         "show": true,
@@ -6290,9 +6337,8 @@
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.1.5",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6354,7 +6400,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 119
+        "y": 123
       },
       "id": 90,
       "panels": [],
@@ -6381,7 +6427,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 120
+        "y": 124
       },
       "hiddenSeries": false,
       "id": 88,
@@ -6400,8 +6446,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -6577,10 +6626,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 120
+        "y": 124
       },
       "hiddenSeries": false,
-      "id": 467,
+      "id": 498,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6596,14 +6645,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6775,10 +6826,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 128
+        "y": 132
       },
       "hiddenSeries": false,
-      "id": 468,
+      "id": 499,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6794,14 +6845,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6973,10 +7026,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 128
+        "y": 132
       },
       "hiddenSeries": false,
-      "id": 469,
+      "id": 500,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -6992,14 +7045,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7158,7 +7213,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 136
+        "y": 140
       },
       "id": 235,
       "panels": [],
@@ -7183,7 +7238,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 137
+        "y": 141
       },
       "hiddenSeries": false,
       "id": 237,
@@ -7200,8 +7255,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -7372,10 +7430,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 137
+        "y": 141
       },
       "hiddenSeries": false,
-      "id": 470,
+      "id": 501,
       "legend": {
         "avg": false,
         "current": true,
@@ -7389,14 +7447,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7563,10 +7623,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 145
+        "y": 149
       },
       "hiddenSeries": false,
-      "id": 471,
+      "id": 502,
       "legend": {
         "avg": false,
         "current": true,
@@ -7580,14 +7640,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7754,10 +7816,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 145
+        "y": 149
       },
       "hiddenSeries": false,
-      "id": 472,
+      "id": 503,
       "legend": {
         "avg": false,
         "current": true,
@@ -7771,14 +7833,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7947,7 +8011,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 153
+        "y": 157
       },
       "hiddenSeries": false,
       "id": 248,
@@ -7966,8 +8030,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -8197,10 +8264,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 153
+        "y": 157
       },
       "hiddenSeries": false,
-      "id": 473,
+      "id": 504,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -8216,14 +8283,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8449,10 +8518,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 161
+        "y": 165
       },
       "hiddenSeries": false,
-      "id": 474,
+      "id": 505,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -8468,14 +8537,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8701,10 +8772,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 161
+        "y": 165
       },
       "hiddenSeries": false,
-      "id": 475,
+      "id": 506,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -8720,14 +8791,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8940,7 +9013,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 169
+        "y": 173
       },
       "id": 68,
       "panels": [],
@@ -8967,7 +9040,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 170
+        "y": 174
       },
       "hiddenSeries": false,
       "id": 50,
@@ -8984,8 +9057,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -9220,10 +9296,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 170
+        "y": 174
       },
       "hiddenSeries": false,
-      "id": 476,
+      "id": 507,
       "legend": {
         "avg": false,
         "current": true,
@@ -9237,14 +9313,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9475,10 +9553,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 178
+        "y": 182
       },
       "hiddenSeries": false,
-      "id": 477,
+      "id": 508,
       "legend": {
         "avg": false,
         "current": true,
@@ -9492,14 +9570,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9730,10 +9810,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 178
+        "y": 182
       },
       "hiddenSeries": false,
-      "id": 478,
+      "id": 509,
       "legend": {
         "avg": false,
         "current": true,
@@ -9747,14 +9827,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9973,7 +10055,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 186
+        "y": 190
       },
       "id": 116,
       "panels": [],
@@ -9999,7 +10081,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 187
+        "y": 191
       },
       "hiddenSeries": false,
       "id": 118,
@@ -10016,8 +10098,11 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -10150,10 +10235,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 187
+        "y": 191
       },
       "hiddenSeries": false,
-      "id": 479,
+      "id": 510,
       "legend": {
         "avg": false,
         "current": true,
@@ -10167,14 +10252,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10303,10 +10390,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 195
+        "y": 199
       },
       "hiddenSeries": false,
-      "id": 480,
+      "id": 511,
       "legend": {
         "avg": false,
         "current": true,
@@ -10320,14 +10407,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10456,10 +10545,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 195
+        "y": 199
       },
       "hiddenSeries": false,
-      "id": 481,
+      "id": 512,
       "legend": {
         "avg": false,
         "current": true,
@@ -10473,14 +10562,16 @@
       "linewidth": 1,
       "maxPerRow": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1600973723916,
+      "repeatIteration": 1601051058723,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10647,5 +10738,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 155
+  "version": 157
 }
