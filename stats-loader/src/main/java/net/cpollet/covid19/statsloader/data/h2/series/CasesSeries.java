@@ -67,7 +67,7 @@ public class CasesSeries implements DataSeries {
         return jdbcTemplate.query(
                 new String(CasesSeries.class.getResourceAsStream("/sql/cases-prevalence.sql").readAllBytes()),
                 (rs, rowNum) -> new H2Row(
-                        LocalDate.now(),
+                        LocalDate.parse(rs.getString("date")),
                         Switzerland.CantonCode.valueOf(rs.getString("canton")),
                         new H2Field("prevalence", casesPer100k(rs.getDouble("cases"), rs.getLong("population")))
                 )

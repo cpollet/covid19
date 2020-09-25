@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1601066020800,
+  "iteration": 1601067553054,
   "links": [
     {
       "icon": "external link",
@@ -368,6 +368,10 @@
                   "prevalence"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
               }
             ]
           ],
@@ -394,6 +398,10 @@
                   "prevalence"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
               },
               {
                 "params": [
@@ -1494,6 +1502,10 @@
         {
           "alias": "new cases, moving avg over 14 days",
           "yaxis": 2
+        },
+        {
+          "alias": "prevalence",
+          "yaxis": 2
         }
       ],
       "spaceLength": 10,
@@ -1655,6 +1667,49 @@
               {
                 "params": [
                   "avg_14d"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "prevalence",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
                 ],
                 "type": "field"
               },
@@ -2034,7 +2089,7 @@
       "dashes": false,
       "datasource": null,
       "decimals": 2,
-      "description": "TODO",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -3079,6 +3134,10 @@
           "bars": true,
           "lines": false,
           "yaxis": 2
+        },
+        {
+          "alias": "prevalence",
+          "yaxis": 2
         }
       ],
       "spaceLength": 10,
@@ -3251,6 +3310,43 @@
               "value": "/^$canton$/"
             }
           ]
+        },
+        {
+          "alias": "prevalence",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "thresholds": [],
@@ -3345,7 +3441,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3367,6 +3463,10 @@
           "alias": "new",
           "bars": true,
           "lines": false,
+          "yaxis": 2
+        },
+        {
+          "alias": "prevalence",
           "yaxis": 2
         }
       ],
@@ -3540,6 +3640,43 @@
               "value": "/^$canton$/"
             }
           ]
+        },
+        {
+          "alias": "prevalence",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "thresholds": [],
@@ -3634,7 +3771,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3656,6 +3793,10 @@
           "alias": "new",
           "bars": true,
           "lines": false,
+          "yaxis": 2
+        },
+        {
+          "alias": "prevalence",
           "yaxis": 2
         }
       ],
@@ -3829,6 +3970,43 @@
               "value": "/^$canton$/"
             }
           ]
+        },
+        {
+          "alias": "prevalence",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "thresholds": [],
@@ -3923,7 +4101,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3945,6 +4123,10 @@
           "alias": "new",
           "bars": true,
           "lines": false,
+          "yaxis": 2
+        },
+        {
+          "alias": "prevalence",
           "yaxis": 2
         }
       ],
@@ -4118,6 +4300,43 @@
               "value": "/^$canton$/"
             }
           ]
+        },
+        {
+          "alias": "prevalence",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "prevalence"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "thresholds": [],
@@ -4403,7 +4622,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4585,7 +4804,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4767,7 +4986,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -5121,7 +5340,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5290,7 +5509,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5459,7 +5678,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5765,7 +5984,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5903,7 +6122,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6041,7 +6260,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6258,7 +6477,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6350,7 +6569,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6442,7 +6661,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6758,7 +6977,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6958,7 +7177,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7158,7 +7377,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7560,7 +7779,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7753,7 +7972,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7946,7 +8165,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8396,7 +8615,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8650,7 +8869,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8904,7 +9123,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9426,7 +9645,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9683,7 +9902,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9940,7 +10159,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10365,7 +10584,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10520,7 +10739,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10675,7 +10894,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601066020800,
+      "repeatIteration": 1601067553054,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10842,5 +11061,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 173
+  "version": 175
 }
