@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1601051058723,
+  "iteration": 1601051446984,
   "links": [
     {
       "icon": "external link",
@@ -283,7 +283,7 @@
         {
           "alias": "Total cases",
           "groupBy": [],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -307,7 +307,7 @@
         {
           "alias": "Prevalence",
           "groupBy": [],
-          "measurement": "h2.Prevalence",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -525,7 +525,7 @@
       "targets": [
         {
           "groupBy": [],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -678,7 +678,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -756,7 +756,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -850,7 +850,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Prevalence",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1431,7 +1431,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -1468,7 +1468,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1505,7 +1505,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -1542,7 +1542,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -2113,7 +2113,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2337,7 +2337,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2474,7 +2474,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2507,7 +2507,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2608,7 +2608,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2641,7 +2641,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2718,7 +2718,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2796,7 +2796,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2874,7 +2874,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Prevalence",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2985,7 +2985,7 @@
           "alias": "total",
           "groupBy": [],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT mean(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3027,7 +3027,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT difference(last(\"value\")) FROM \"cumulatedConfirmedForward\" WHERE (\"canton\" =~ /^$canton$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3073,7 +3073,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3119,7 +3119,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3241,7 +3241,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3274,7 +3274,7 @@
           "alias": "total",
           "groupBy": [],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT mean(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3316,7 +3316,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT difference(last(\"value\")) FROM \"cumulatedConfirmedForward\" WHERE (\"canton\" =~ /^$canton$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3362,7 +3362,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3408,7 +3408,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3530,7 +3530,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3563,7 +3563,7 @@
           "alias": "total",
           "groupBy": [],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT mean(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3605,7 +3605,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT difference(last(\"value\")) FROM \"cumulatedConfirmedForward\" WHERE (\"canton\" =~ /^$canton$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3651,7 +3651,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3697,7 +3697,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3819,7 +3819,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3852,7 +3852,7 @@
           "alias": "total",
           "groupBy": [],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT mean(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3894,7 +3894,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT difference(last(\"value\")) FROM \"cumulatedConfirmedForward\" WHERE (\"canton\" =~ /^$canton$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3940,7 +3940,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -3986,7 +3986,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"cumulatedConfirmedForward\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
@@ -4137,7 +4137,7 @@
               "type": "time"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4299,7 +4299,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4319,7 +4319,7 @@
               "type": "time"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4481,7 +4481,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4501,7 +4501,7 @@
               "type": "time"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4663,7 +4663,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4683,7 +4683,7 @@
               "type": "time"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4878,7 +4878,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5017,7 +5017,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5047,7 +5047,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5186,7 +5186,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5216,7 +5216,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5355,7 +5355,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5385,7 +5385,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5547,7 +5547,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5661,7 +5661,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5685,7 +5685,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5799,7 +5799,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5823,7 +5823,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5937,7 +5937,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -5961,7 +5961,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6083,7 +6083,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6154,7 +6154,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6175,7 +6175,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6246,7 +6246,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6267,7 +6267,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6338,7 +6338,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6359,7 +6359,7 @@
               "type": "tag"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6654,7 +6654,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -6854,7 +6854,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7054,7 +7054,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7456,7 +7456,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7649,7 +7649,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7842,7 +7842,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8087,7 +8087,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -8292,7 +8292,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8341,7 +8341,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -8546,7 +8546,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8595,7 +8595,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -8800,7 +8800,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8849,7 +8849,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -9322,7 +9322,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9579,7 +9579,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9836,7 +9836,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10137,7 +10137,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -10261,7 +10261,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10292,7 +10292,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -10416,7 +10416,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10447,7 +10447,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -10571,7 +10571,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601051058723,
+      "repeatIteration": 1601051446984,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10602,7 +10602,7 @@
             }
           ],
           "hide": false,
-          "measurement": "h2.Confirmed",
+          "measurement": "h2.Cases",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -10706,14 +10706,14 @@
           ]
         },
         "datasource": "InfluxDB",
-        "definition": "SHOW TAG VALUES FROM \"h2.Confirmed\" WITH KEY = \"canton\"",
+        "definition": "SHOW TAG VALUES FROM \"h2.Cases\" WITH KEY = \"canton\"",
         "hide": 0,
         "includeAll": true,
         "label": null,
         "multi": true,
         "name": "canton",
         "options": [],
-        "query": "SHOW TAG VALUES FROM \"h2.Confirmed\" WITH KEY = \"canton\"",
+        "query": "SHOW TAG VALUES FROM \"h2.Cases\" WITH KEY = \"canton\"",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -10738,5 +10738,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 157
+  "version": 158
 }
