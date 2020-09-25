@@ -18,7 +18,7 @@ public class ApDataLoader implements DataLoader<ApRoot> {
         NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         supplier.get().getRecords().forEach(
                 r -> namedParameterJdbcTemplate.update(
-                        "merge into covid_data (date, canton, hospitalized)" +
+                        "merge into raw_data (date, canton, hospitalized)" +
                                 "values (:date, :canton, :measure)",
                         new MapSqlParameterSource()
                                 .addValue("date", r.getDate())
@@ -27,7 +27,7 @@ public class ApDataLoader implements DataLoader<ApRoot> {
                 )
         );
 
-        jdbcTemplate.query("select min(date) from covid_data", rs -> {
+        jdbcTemplate.query("select min(date) from raw_data", rs -> {
             LocalDate minDate = LocalDate.parse(rs.getString(1)).minusDays(1);
             LocalDate current = LocalDate.now();
 

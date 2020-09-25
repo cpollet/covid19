@@ -35,7 +35,7 @@ public class TmDataLoader implements DataLoader<TmRoot> {
         NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         supplier.get().getRecords().forEach(
                 r -> namedParameterJdbcTemplate.update(
-                        "merge into covid_data (date, canton, " + r.getMeasure() + ")" +
+                        "merge into raw_data (date, canton, " + r.getMeasure() + ")" +
                                 "values (:date, :canton, :measure)",
                         new MapSqlParameterSource()
                                 .addValue("date", r.getDate())
@@ -44,7 +44,7 @@ public class TmDataLoader implements DataLoader<TmRoot> {
                 )
         );
 
-        jdbcTemplate.query("select min(date) from covid_data", rs -> {
+        jdbcTemplate.query("select min(date) from raw_data", rs -> {
             LocalDate minDate = LocalDate.parse(rs.getString(1)).minusDays(1);
             LocalDate current = LocalDate.now();
 

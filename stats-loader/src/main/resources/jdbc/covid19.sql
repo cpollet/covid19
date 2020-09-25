@@ -1,4 +1,4 @@
-create table covid_data (
+create table raw_data (
     date date,
     canton varchar(2),
     -- weekday int, -- ISO-8601 standard
@@ -22,24 +22,70 @@ create table population (
     count int
 );
 
+-- contains all cantons + CH
 create view cantons as (
     select distinct canton as canton from population
     union
     select 'CH'
 );
 
-create view contiguous_covid_data as (
+-- contains all dates and cantons combinations
+create view universe as (
+  select dates.date, cantons.canton from dates cross join cantons
+);
+
+-- contains the full data set (sums for CH, actual values for the cantons)
+create view consolidated_data as (
+  select
+    date,
+    'CH' as canton,
+    sum(cases) as cases,
+    sum(deaths) as deaths,
+    sum(hospitalized) as hospitalized,
+    sum(tests_positive) as tests_positive,
+    sum(tests_negative) as tests_negative
+  from raw_data
+  group by date
+  union (
+    select
+      date,
+      canton,
+      cases,
+      deaths,
+      hospitalized,
+      0 as tests_positive,
+      0 as tests_negative
+    from raw_data
+    where canton<>'CH'
+  )
+);
+
+-- contains a consolidated data row for each date+canton combinations
+create view full_data as (
+  select
+    u.date,
+    u.canton,
+    nvl(d.cases,0) as cases,
+    nvl(d.deaths,0) as deaths,
+    nvl(d.hospitalized,0) as hospitalized,
+    nvl(d.tests_positive,0) as tests_positive,
+    nvl(d.tests_negative,0) as tests_negative,
+    nvl(d.tests_positive,0) + nvl(d.tests_negative,0) as tests_total
+  from consolidated_data d right join universe u on d.date = u.date and d.canton = u.canton
+);
+
+create view contiguous_covid_data as ( -- deprecated
     with dataset as (select dates.date, cantons.canton from dates cross join cantons)
     select
         d.date,
         d.canton,
-        nvl(cd.cases,0) as cases,
-        nvl(cd.deaths,0) as deaths,
+        nvl(rd.cases,0) as cases,
+        nvl(rd.deaths,0) as deaths,
         nvl(hospitalized,0) as hospitalized,
         nvl(tests_positive,0) as tests_positive,
         nvl(tests_negative,0) as tests_negative,
         nvl(tests_positive,0) + nvl(tests_negative,0) as tests_total
-    from covid_data cd right join dataset d on cd.date = d.date and cd.canton = d.canton
+    from raw_data rd right join dataset d on rd.date = d.date and rd.canton = d.canton
 );
 
 -- source: http://www.pxweb.bfs.admin.ch/sq/a1e5c2da-3e0d-4a48-a99d-901bb55f5db8
@@ -95,3 +141,7 @@ insert into population values ('GE','M',241848);
 insert into population values ('GE','F',257632);
 insert into population values ('JU','M',36317);
 insert into population values ('JU','F',37102);
+
+insert into population values ('CH', 'M', (select sum(count) from population where sex='M'));
+insert into population values ('CH', 'F', (select sum(count) from population where sex='F'));
+insert into population select canton, 'T', sum(count) from population group by canton;

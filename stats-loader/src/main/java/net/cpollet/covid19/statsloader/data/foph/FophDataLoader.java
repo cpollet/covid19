@@ -18,7 +18,7 @@ public class FophDataLoader implements DataLoader<FophRoot> {
         NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         supplier.get().getRecords().forEach(
                 r -> namedParameterJdbcTemplate.update(
-                        "merge into covid_data (date, canton, tests_positive, tests_negative)" +
+                        "merge into raw_data (date, canton, tests_positive, tests_negative)" +
                                 "values (:date, :canton, :tests_positive, :tests_negative)",
                         new MapSqlParameterSource()
                                 .addValue("date", r.getDate())
@@ -28,7 +28,7 @@ public class FophDataLoader implements DataLoader<FophRoot> {
                 )
         );
 
-        jdbcTemplate.query("select min(date) from covid_data", rs -> {
+        jdbcTemplate.query("select min(date) from raw_data", rs -> {
             LocalDate minDate = LocalDate.parse(rs.getString(1)).minusDays(1);
             LocalDate current = LocalDate.now();
 
