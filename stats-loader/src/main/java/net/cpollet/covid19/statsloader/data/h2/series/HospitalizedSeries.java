@@ -1,5 +1,6 @@
 package net.cpollet.covid19.statsloader.data.h2.series;
 
+import lombok.SneakyThrows;
 import net.cpollet.covid19.statsloader.data.h2.H2Field;
 import net.cpollet.covid19.statsloader.data.h2.H2Row;
 import net.cpollet.covid19.statsloader.domain.Switzerland;
@@ -16,16 +17,11 @@ public class HospitalizedSeries implements DataSeries {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @SneakyThrows
     @Override
     public Stream<H2Row> rows() {
         return jdbcTemplate.query(
-                "select " +
-                        "  date, " +
-                        "  canton, " +
-                        "  hospitalized, " +
-                        "  (select p.hospitalized from contiguous_covid_data p where p.canton=d.canton and p.date=d.date-1) as prev_hospitalized " +
-                        "from " +
-                        "  contiguous_covid_data d",
+                new String(HospitalizedSeries.class.getResourceAsStream("/sql/hospitalized.sql").readAllBytes()),
                 (rs, rowNum) -> new H2Row(
                         LocalDate.parse(rs.getString("date")),
                         Switzerland.CantonCode.valueOf(rs.getString("canton")),

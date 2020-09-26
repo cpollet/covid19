@@ -40,8 +40,4 @@ public class H2PointSource implements Source<DataPoint> {
                 new TestsSeries(jdbcTemplate).rows().map(r -> r.toPoint("h2.Tests"))
         ).flatMap(Function.identity());
     }
-
-    private double casesPer100k(double value, long population) {
-        return value / (double) population * 100_000.0;
-    }
 }
