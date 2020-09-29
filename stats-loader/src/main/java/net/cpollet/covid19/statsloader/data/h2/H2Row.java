@@ -16,28 +16,39 @@
 package net.cpollet.covid19.statsloader.data.h2;
 
 import com.google.common.collect.ImmutableMap;
-import lombok.AllArgsConstructor;
 import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.domain.Switzerland;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.format.TextStyle;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-@AllArgsConstructor
 public class H2Row {
     private final LocalDate date;
     private final Switzerland.CantonCode canton;
     private final List<H2Field> fields;
+    private final boolean last;
+
+    public H2Row(LocalDate date, Switzerland.CantonCode canton, List<H2Field> fields, boolean last) {
+        this.date = date;
+        this.canton = canton;
+        this.fields = fields;
+        this.last = last;
+    }
+
+    public H2Row(LocalDate date, Switzerland.CantonCode canton, List<H2Field> fields) {
+        this(date, canton, fields, false);
+    }
 
     public H2Row(LocalDate date, Switzerland.CantonCode canton, H2Field field) {
-        this(date, canton, Collections.singletonList(field));
+        this(date, canton, Collections.singletonList(field), false);
+    }
+
+    public H2Row(LocalDate date, Switzerland.CantonCode canton, H2Field fields, boolean last) {
+        this(date, canton, Collections.singletonList(fields), last);
     }
 
     public DataPoint toPoint(String measure) {
@@ -46,7 +57,8 @@ public class H2Row {
                 measure,
                 ImmutableMap.of(
                         "dayOfWeek", dayOfWeek(),
-                        "canton", canton.name()
+                        "canton", canton.name(),
+                        "last", Boolean.toString(last)
                 ),
                 fields.stream().collect(Collectors.toMap(H2Field::getMeasure, H2Field::getValue))
         );

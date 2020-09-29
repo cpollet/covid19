@@ -2,7 +2,8 @@ select
   d.date,
   d.canton,
   sum(d.cases) over (partition by d.canton order by d.date range between 13 preceding and current row) as sum_14d,
-  p.count as population
+  p.count as population,
+  d.date = (select max(date) from universe) as last
 from
   full_data d, population p
 where

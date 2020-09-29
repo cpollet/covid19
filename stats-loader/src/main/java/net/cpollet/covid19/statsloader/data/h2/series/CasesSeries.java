@@ -57,7 +57,8 @@ public class CasesSeries implements DataSeries {
                         new H2Field(
                                 "incidence",
                                 casesPer100k(rs.getDouble("sum_14d"), rs.getLong("population"))
-                        )
+                        ),
+                        rs.getBoolean("last")
                 )
         );
     }
