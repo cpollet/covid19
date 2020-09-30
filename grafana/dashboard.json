@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1601067553054,
+  "iteration": 1601488877696,
   "links": [
     {
       "icon": "external link",
@@ -642,6 +642,12 @@
               "key": "canton",
               "operator": "=",
               "value": "CH"
+            },
+            {
+              "condition": "AND",
+              "key": "last",
+              "operator": "=",
+              "value": "false"
             }
           ]
         }
@@ -869,6 +875,12 @@
               "key": "canton",
               "operator": "!=",
               "value": "CH"
+            },
+            {
+              "condition": "AND",
+              "key": "last",
+              "operator": "=",
+              "value": "false"
             }
           ]
         }
@@ -2787,6 +2799,12 @@
               "key": "canton",
               "operator": "=",
               "value": "CH"
+            },
+            {
+              "condition": "AND",
+              "key": "last",
+              "operator": "=",
+              "value": "false"
             }
           ]
         },
@@ -2975,6 +2993,12 @@
               "key": "canton",
               "operator": "=~",
               "value": "/^$canton$/"
+            },
+            {
+              "condition": "AND",
+              "key": "last",
+              "operator": "=",
+              "value": "false"
             }
           ]
         }
@@ -3441,7 +3465,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3771,7 +3795,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4101,7 +4125,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4622,7 +4646,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4804,7 +4828,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4986,7 +5010,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -5340,7 +5364,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5509,7 +5533,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5678,7 +5702,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5984,7 +6008,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6122,7 +6146,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6260,7 +6284,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6477,7 +6501,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6569,7 +6593,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6661,7 +6685,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6977,7 +7001,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7177,7 +7201,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7377,7 +7401,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7779,7 +7803,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7972,7 +7996,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8165,7 +8189,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8615,7 +8639,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8869,7 +8893,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9123,7 +9147,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9645,7 +9669,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9902,7 +9926,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10159,7 +10183,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10584,7 +10608,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10739,7 +10763,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10894,7 +10918,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601067553054,
+      "repeatIteration": 1601488877696,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -11061,5 +11085,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 175
+  "version": 4
 }
