@@ -19,7 +19,3 @@ after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push cpollet/covid19-stats-loader:latest
   - curl "https://webhook.cpollet.io/hooks/net.cpollet.covid19:stats-loader:update?token=$WEBHOOK_TOKEN"
-
-branches:
-  only:
-    - master
