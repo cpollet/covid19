@@ -54,6 +54,8 @@ public final class H2Factory {
     public static void shutdown() {
         if (db != null) {
             db.shutdown();
+            db = null;
+            template = null;
         }
     }
 }
