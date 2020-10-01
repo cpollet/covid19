@@ -1,9 +1,8 @@
+os: linux
 dist: trusty
 language: java
 jdk:
   - oraclejdk11
-
-sudo: required
 
 services:
   - docker
