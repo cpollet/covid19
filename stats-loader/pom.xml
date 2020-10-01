@@ -12,6 +12,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <ci.buildNumber>${env.TRAVIS_BUILD_NUMBER}</ci.buildNumber>
+    <ci.commit>${env.TRAVIS_COMMIT}</ci.commit>
   </properties>
 
   <dependencies>
@@ -112,6 +114,13 @@
 
   <build>
     <finalName>${project.artifactId}</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources-filtered</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
 
     <plugins>
       <plugin>
