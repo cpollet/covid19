@@ -17,11 +17,13 @@ package net.cpollet.covid19.statsloader.db;
 
 import org.h2.jdbcx.JdbcDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 public final class H2Factory {
     private static JdbcTemplate template;
+    private static EmbeddedDatabase db;
 
     private H2Factory() {
         // nothing
@@ -31,13 +33,12 @@ public final class H2Factory {
         if (template == null) {
             String h2Url = System.getProperty("h2.url");
             if (h2Url == null) {
-                template = new JdbcTemplate(
-                        new EmbeddedDatabaseBuilder()
-                                .setType(EmbeddedDatabaseType.H2)
-                                .addScript("classpath:jdbc/covid19.sql")
-                                .setName("covid19")
-                                .build()
-                );
+                db = new EmbeddedDatabaseBuilder()
+                        .setType(EmbeddedDatabaseType.H2)
+                        .addScript("classpath:jdbc/covid19.sql")
+                        .setName("covid19")
+                        .build();
+                template = new JdbcTemplate(db);
             }
             else {
                 JdbcDataSource datasource = new JdbcDataSource();
@@ -48,5 +49,11 @@ public final class H2Factory {
         }
 
         return template;
+    }
+
+    public static void shutdown() {
+        if (db != null) {
+            db.shutdown();
+        }
     }
 }

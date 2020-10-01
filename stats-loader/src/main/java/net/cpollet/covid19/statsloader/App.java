@@ -1,8 +1,5 @@
 package net.cpollet.covid19.statsloader;
 
-import com.google.cloud.functions.HttpFunction;
-import com.google.cloud.functions.HttpRequest;
-import com.google.cloud.functions.HttpResponse;
 import net.cpollet.covid19.statsloader.data.DataPoint;
 import net.cpollet.covid19.statsloader.data.LastUpdateSource;
 import net.cpollet.covid19.statsloader.data.Source;
@@ -19,38 +16,62 @@ import net.cpollet.covid19.statsloader.db.H2Factory;
 import net.cpollet.covid19.statsloader.db.InfluxDBFactory;
 import net.cpollet.covid19.statsloader.domain.Switzerland;
 import org.influxdb.dto.BatchPoints;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.logging.Logger;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class App implements HttpFunction {
-    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
+public class App {
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
         new App().doWork();
+        if ("true".equals(System.getenv("SCHEDULED"))) {
+            LOGGER.info("Start in scheduled mode");
+            Executors.newScheduledThreadPool(1).scheduleWithFixedDelay(
+                    () -> {
+                        if (LocalDateTime.now().getMinute() == 0) {
+                            new App().doWork();
+                        }
+                    },
+                    0L,
+                    30,
+                    TimeUnit.SECONDS
+            );
+        }
     }
 
     private void doWork() {
-        long startTime = System.currentTimeMillis();
+        try {
+            long startTime = System.currentTimeMillis();
 
-        List<DataPoint> points = computePoints();
+            List<DataPoint> points = computePoints();
 
-        if (!Thread.interrupted() && !points.isEmpty()) {
-            LOGGER.info("Sending points to influxdb");
-            InfluxDBFactory.covid19().write(
-                    BatchPoints.builder()
-                            .points(
-                                    points.stream()
-                                            .map(DataPoint::toPoint)
-                                            .collect(Collectors.toList())
-                            )
-                            .points(new LastUpdateSource().stream().collect(Collectors.toList())).build()
-            );
+            if (!Thread.interrupted() && !points.isEmpty()) {
+                LOGGER.info("Sending points to influxdb");
+                InfluxDBFactory.covid19().write(
+                        BatchPoints.builder()
+                                .points(
+                                        points.stream()
+                                                .map(DataPoint::toPoint)
+                                                .collect(Collectors.toList())
+                                )
+                                .points(new LastUpdateSource().stream().collect(Collectors.toList())).build()
+                );
 
-            long duration = System.currentTimeMillis() - startTime;
-            LOGGER.info(String.format("%d points sent in %d ms", points.size(), duration));
+                long duration = System.currentTimeMillis() - startTime;
+                LOGGER.info(String.format("%d points sent in %d ms", points.size(), duration));
+            }
+        }
+        catch (Exception e) {
+            LOGGER.error("Exception while executing: {}, ", e.getMessage(), e);
+        } finally {
+            H2Factory.shutdown();
         }
     }
 
@@ -66,10 +87,5 @@ public class App implements HttpFunction {
                 new H2PointSource(H2Factory.inMemory()),
                 new Covid19RePointSource(new Covid19ReDataSupplier())
         ).flatMap(Source::stream).collect(Collectors.toList());
-    }
-
-    @Override
-    public void service(HttpRequest httpRequest, HttpResponse httpResponse) {
-        doWork();
     }
 }
