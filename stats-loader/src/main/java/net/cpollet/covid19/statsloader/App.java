@@ -32,12 +32,9 @@ public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) throws IOException {
-        Properties properties = new Properties();
-        properties.load(App.class.getResourceAsStream("/build.properties"));
-
         LOGGER.info("CI build number:  {}, commit {}",
-                properties.getOrDefault("build.number", "-"),
-                properties.getOrDefault("build.commit", "-"));
+                BuildPropertiesFactory.properties().getOrDefault("build.number", "-"),
+                BuildPropertiesFactory.properties().getOrDefault("build.commit", "-"));
 
         new App().doWork();
         if ("true".equals(System.getenv("SCHEDULED"))) {

@@ -15,6 +15,7 @@
  */
 package net.cpollet.covid19.statsloader.data;
 
+import net.cpollet.covid19.statsloader.BuildPropertiesFactory;
 import org.influxdb.dto.Point;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,6 +30,7 @@ public class LastUpdateSource implements Source<Point> {
         return Stream.of(
                 Point.measurement("LastUpdate")
                         .addField("value", now())
+                        .addField("commit", BuildPropertiesFactory.properties().getProperty("build.commit", "-").substring(0, 7))
                         .build()
         );
     }

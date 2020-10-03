@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1601581367903,
+  "iteration": 1601720360382,
   "links": [
     {
       "icon": "external link",
@@ -29,7 +29,7 @@
   ],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -38,142 +38,161 @@
         "y": 0
       },
       "id": 60,
-      "panels": [
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 7,
-            "x": 0,
-            "y": 1
-          },
-          "id": 38,
-          "options": {
-            "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
-            "mode": "markdown"
-          },
-          "pluginVersion": "7.1.0",
-          "targets": [
-            {
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "",
-          "transparent": true,
-          "type": "text"
-        },
-        {
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "rgb(145, 122, 104)",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 2,
-            "w": 6,
-            "x": 18,
-            "y": 1
-          },
-          "id": 44,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": true
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.2.0",
-          "targets": [
-            {
-              "alias": "",
-              "groupBy": [],
-              "measurement": "LastUpdate",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "value"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Last update",
-          "transparent": true,
-          "type": "stat"
-        }
-      ],
+      "panels": [],
       "title": "Info",
       "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 0,
+        "y": 1
+      },
+      "id": 38,
+      "options": {
+        "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
+        "mode": "markdown"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(145, 122, 104)",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 44,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.0",
+      "targets": [
+        {
+          "alias": "Last udpate date",
+          "groupBy": [],
+          "measurement": "LastUpdate",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "GH commit #",
+          "groupBy": [],
+          "measurement": "LastUpdate",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "commit"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Last update",
+      "transparent": true,
+      "type": "stat"
     },
     {
       "collapsed": false,
@@ -182,7 +201,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 7
       },
       "id": 32,
       "panels": [],
@@ -226,7 +245,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 2
+        "y": 8
       },
       "id": 20,
       "options": {
@@ -456,7 +475,7 @@
         "h": 7,
         "w": 3,
         "x": 6,
-        "y": 2
+        "y": 8
       },
       "id": 414,
       "interval": null,
@@ -597,7 +616,7 @@
         "h": 7,
         "w": 3,
         "x": 9,
-        "y": 2
+        "y": 8
       },
       "id": 164,
       "interval": null,
@@ -682,7 +701,7 @@
         "h": 7,
         "w": 3,
         "x": 12,
-        "y": 2
+        "y": 8
       },
       "id": 326,
       "options": {
@@ -751,7 +770,7 @@
         "h": 7,
         "w": 3,
         "x": 15,
-        "y": 2
+        "y": 8
       },
       "id": 369,
       "interval": null,
@@ -829,7 +848,7 @@
         "h": 7,
         "w": 3,
         "x": 18,
-        "y": 2
+        "y": 8
       },
       "id": 482,
       "interval": null,
@@ -927,7 +946,7 @@
         "h": 7,
         "w": 3,
         "x": 21,
-        "y": 2
+        "y": 8
       },
       "id": 371,
       "interval": null,
@@ -1020,7 +1039,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 10,
@@ -1264,7 +1283,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 12,
@@ -1475,7 +1494,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 19
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 144,
@@ -1800,7 +1819,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 19
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 250,
@@ -1984,7 +2003,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 28
+        "y": 34
       },
       "hiddenSeries": false,
       "id": 420,
@@ -2114,7 +2133,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 28
+        "y": 34
       },
       "hiddenSeries": false,
       "id": 419,
@@ -2358,7 +2377,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 28
+        "y": 34
       },
       "hiddenSeries": false,
       "id": 418,
@@ -2618,7 +2637,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 36
+        "y": 42
       },
       "id": 367,
       "options": {
@@ -2714,7 +2733,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 46
       },
       "id": 26,
       "panels": [],
@@ -2752,7 +2771,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 47
       },
       "id": 370,
       "options": {
@@ -2869,7 +2888,7 @@
         "h": 6,
         "w": 4,
         "x": 12,
-        "y": 41
+        "y": 47
       },
       "id": 372,
       "interval": null,
@@ -2947,7 +2966,7 @@
         "h": 6,
         "w": 4,
         "x": 16,
-        "y": 41
+        "y": 47
       },
       "id": 451,
       "interval": null,
@@ -3031,7 +3050,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 41
+        "y": 47
       },
       "id": 382,
       "interval": null,
@@ -3106,7 +3125,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 2,
@@ -3435,7 +3454,7 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 483,
@@ -3465,7 +3484,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3765,7 +3784,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 59
+        "y": 65
       },
       "hiddenSeries": false,
       "id": 484,
@@ -3795,7 +3814,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4095,7 +4114,7 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 59
+        "y": 65
       },
       "hiddenSeries": false,
       "id": 485,
@@ -4125,7 +4144,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4450,7 +4469,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 71
+        "y": 77
       },
       "id": 52,
       "maxPerRow": 2,
@@ -4631,7 +4650,7 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 71
+        "y": 77
       },
       "id": 486,
       "maxPerRow": 2,
@@ -4646,7 +4665,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4813,7 +4832,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 77
+        "y": 83
       },
       "id": 487,
       "maxPerRow": 2,
@@ -4828,7 +4847,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4995,7 +5014,7 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 77
+        "y": 83
       },
       "id": 488,
       "maxPerRow": 2,
@@ -5010,7 +5029,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -5170,7 +5189,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 83
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 6,
@@ -5338,7 +5357,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 83
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 489,
@@ -5364,7 +5383,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5507,7 +5526,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 83
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 490,
@@ -5533,7 +5552,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5676,7 +5695,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 83
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 491,
@@ -5702,7 +5721,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5815,7 +5834,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 88
+        "y": 94
       },
       "id": 285,
       "panels": [],
@@ -5841,7 +5860,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 89
+        "y": 95
       },
       "hiddenSeries": false,
       "id": 8,
@@ -5978,7 +5997,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 89
+        "y": 95
       },
       "hiddenSeries": false,
       "id": 492,
@@ -6008,7 +6027,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6116,7 +6135,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 96
+        "y": 102
       },
       "hiddenSeries": false,
       "id": 493,
@@ -6146,7 +6165,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6254,7 +6273,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 96
+        "y": 102
       },
       "hiddenSeries": false,
       "id": 494,
@@ -6284,7 +6303,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6395,7 +6414,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 103
+        "y": 109
       },
       "id": 14,
       "interval": null,
@@ -6486,7 +6505,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 103
+        "y": 109
       },
       "id": 495,
       "interval": null,
@@ -6501,7 +6520,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6578,7 +6597,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 103
+        "y": 109
       },
       "id": 496,
       "interval": null,
@@ -6593,7 +6612,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6670,7 +6689,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 103
+        "y": 109
       },
       "id": 497,
       "interval": null,
@@ -6685,7 +6704,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6747,7 +6766,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 111
+        "y": 117
       },
       "id": 90,
       "panels": [],
@@ -6774,7 +6793,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 112
+        "y": 118
       },
       "hiddenSeries": false,
       "id": 88,
@@ -6973,7 +6992,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 112
+        "y": 118
       },
       "hiddenSeries": false,
       "id": 498,
@@ -7001,7 +7020,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7173,7 +7192,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 120
+        "y": 126
       },
       "hiddenSeries": false,
       "id": 499,
@@ -7201,7 +7220,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7373,7 +7392,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 120
+        "y": 126
       },
       "hiddenSeries": false,
       "id": 500,
@@ -7401,7 +7420,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7560,7 +7579,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 128
+        "y": 134
       },
       "id": 235,
       "panels": [],
@@ -7585,7 +7604,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 129
+        "y": 135
       },
       "hiddenSeries": false,
       "id": 237,
@@ -7777,7 +7796,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 129
+        "y": 135
       },
       "hiddenSeries": false,
       "id": 501,
@@ -7803,7 +7822,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7970,7 +7989,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 137
+        "y": 143
       },
       "hiddenSeries": false,
       "id": 502,
@@ -7996,7 +8015,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8163,7 +8182,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 137
+        "y": 143
       },
       "hiddenSeries": false,
       "id": 503,
@@ -8189,7 +8208,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8358,7 +8377,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 145
+        "y": 151
       },
       "hiddenSeries": false,
       "id": 248,
@@ -8611,7 +8630,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 145
+        "y": 151
       },
       "hiddenSeries": false,
       "id": 504,
@@ -8639,7 +8658,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8865,7 +8884,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 145
+        "y": 151
       },
       "hiddenSeries": false,
       "id": 505,
@@ -8893,7 +8912,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9119,7 +9138,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 145
+        "y": 151
       },
       "hiddenSeries": false,
       "id": 506,
@@ -9147,7 +9166,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9360,7 +9379,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 153
+        "y": 159
       },
       "id": 68,
       "panels": [],
@@ -9387,7 +9406,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 154
+        "y": 160
       },
       "hiddenSeries": false,
       "id": 50,
@@ -9643,7 +9662,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 154
+        "y": 160
       },
       "hiddenSeries": false,
       "id": 507,
@@ -9669,7 +9688,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9900,7 +9919,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 162
+        "y": 168
       },
       "hiddenSeries": false,
       "id": 508,
@@ -9926,7 +9945,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10157,7 +10176,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 162
+        "y": 168
       },
       "hiddenSeries": false,
       "id": 509,
@@ -10183,7 +10202,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10402,7 +10421,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 170
+        "y": 176
       },
       "id": 116,
       "panels": [],
@@ -10428,7 +10447,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 171
+        "y": 177
       },
       "hiddenSeries": false,
       "id": 118,
@@ -10582,7 +10601,7 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 171
+        "y": 177
       },
       "hiddenSeries": false,
       "id": 510,
@@ -10608,7 +10627,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10737,7 +10756,7 @@
         "h": 7,
         "w": 6,
         "x": 12,
-        "y": 171
+        "y": 177
       },
       "hiddenSeries": false,
       "id": 511,
@@ -10763,7 +10782,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10892,7 +10911,7 @@
         "h": 7,
         "w": 6,
         "x": 18,
-        "y": 171
+        "y": 177
       },
       "hiddenSeries": false,
       "id": 512,
@@ -10918,7 +10937,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601581367903,
+      "repeatIteration": 1601720360382,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -11085,5 +11104,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 5
+  "version": 3
 }
