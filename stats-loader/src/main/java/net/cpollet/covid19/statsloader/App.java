@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -31,7 +30,7 @@ import java.util.stream.Stream;
 public class App {
     private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         LOGGER.info("CI build number:  {}, commit {}",
                 BuildPropertiesFactory.properties().getOrDefault("build.number", "-"),
                 BuildPropertiesFactory.properties().getOrDefault("build.commit", "-"));
