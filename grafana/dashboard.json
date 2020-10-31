@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1601720360382,
+  "id": 2,
+  "iteration": 1604156833002,
   "links": [
     {
       "icon": "external link",
@@ -29,7 +29,7 @@
   ],
   "panels": [
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -38,161 +38,162 @@
         "y": 0
       },
       "id": 60,
-      "panels": [],
-      "title": "Info",
-      "type": "row"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 7,
-        "x": 0,
-        "y": 1
-      },
-      "id": 38,
-      "options": {
-        "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
-        "mode": "markdown"
-      },
-      "pluginVersion": "7.1.0",
-      "targets": [
+      "panels": [
         {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
             },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 7,
+            "x": 0,
+            "y": 1
+          },
+          "id": 38,
+          "options": {
+            "content": "# covid-19 stats\n## Data sources\n * [OpenZH](https://github.com/openZH/covid_19): hospitalisations data\n * [FOPH](https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/situation-schweiz-und-international.html): test data\n * [COVID-19 Re](https://github.com/covid-19-Re/dailyRe-Data): Re estimate\n * [bag_scrape](https://github.com/timoll/bag_scrape) - which is sourced from FOPH: everything else",
+            "mode": "markdown"
+          },
+          "pluginVersion": "7.1.0",
+          "targets": [
             {
-              "params": [
-                "null"
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
               ],
-              "type": "fill"
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
             }
           ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
-      "transparent": true,
-      "type": "text"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "rgb(145, 122, 104)",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 8,
-        "x": 16,
-        "y": 1
-      },
-      "id": 44,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.2.0",
-      "targets": [
-        {
-          "alias": "Last udpate date",
-          "groupBy": [],
-          "measurement": "LastUpdate",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              }
-            ]
-          ],
-          "tags": []
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "",
+          "transparent": true,
+          "type": "text"
         },
         {
-          "alias": "GH commit #",
-          "groupBy": [],
-          "measurement": "LastUpdate",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "commit"
-                ],
-                "type": "field"
+          "datasource": null,
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "rgb(145, 122, 104)",
+                    "value": null
+                  }
+                ]
               }
-            ]
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 8,
+            "x": 16,
+            "y": 1
+          },
+          "id": 44,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "7.2.0",
+          "targets": [
+            {
+              "alias": "Last udpate date",
+              "groupBy": [],
+              "measurement": "LastUpdate",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "alias": "GH commit #",
+              "groupBy": [],
+              "measurement": "LastUpdate",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "commit"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": []
+            }
           ],
-          "tags": []
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Last update",
+          "transparent": true,
+          "type": "stat"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Last update",
-      "transparent": true,
-      "type": "stat"
+      "title": "Info",
+      "type": "row"
     },
     {
       "collapsed": false,
@@ -201,7 +202,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 1
       },
       "id": 32,
       "panels": [],
@@ -245,7 +246,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 8
+        "y": 2
       },
       "id": 20,
       "options": {
@@ -475,7 +476,7 @@
         "h": 7,
         "w": 3,
         "x": 6,
-        "y": 8
+        "y": 2
       },
       "id": 414,
       "interval": null,
@@ -616,7 +617,7 @@
         "h": 7,
         "w": 3,
         "x": 9,
-        "y": 8
+        "y": 2
       },
       "id": 164,
       "interval": null,
@@ -701,7 +702,7 @@
         "h": 7,
         "w": 3,
         "x": 12,
-        "y": 8
+        "y": 2
       },
       "id": 326,
       "options": {
@@ -770,7 +771,7 @@
         "h": 7,
         "w": 3,
         "x": 15,
-        "y": 8
+        "y": 2
       },
       "id": 369,
       "interval": null,
@@ -848,7 +849,7 @@
         "h": 7,
         "w": 3,
         "x": 18,
-        "y": 8
+        "y": 2
       },
       "id": 482,
       "interval": null,
@@ -946,7 +947,7 @@
         "h": 7,
         "w": 3,
         "x": 21,
-        "y": 8
+        "y": 2
       },
       "id": 371,
       "interval": null,
@@ -1013,6 +1014,391 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 514,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "cases",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "hospitalized",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Hospitalized",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "current"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "deaths",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "sum"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Overall",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 10,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 546,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "h2.Deaths.mean",
+          "yaxis": 2
+        },
+        {
+          "alias": "h2.Deaths.moving_average",
+          "yaxis": 2
+        },
+        {
+          "alias": "New deaths, 7d avg",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "New cases, 7d avg",
+          "groupBy": [],
+          "measurement": "h2.Cases",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "7"
+                ],
+                "type": "moving_average"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        },
+        {
+          "alias": "New deaths, 7d avg",
+          "groupBy": [],
+          "measurement": "h2.Deaths",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "new"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "7"
+                ],
+                "type": "moving_average"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "canton",
+              "operator": "=",
+              "value": "CH"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Cases and deaths CH",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
           "custom": {
             "align": null
           },
@@ -1039,7 +1425,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 15
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 10,
@@ -1283,7 +1669,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 15
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 12,
@@ -1494,7 +1880,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 25
+        "y": 29
       },
       "hiddenSeries": false,
       "id": 144,
@@ -1819,7 +2205,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 25
+        "y": 29
       },
       "hiddenSeries": false,
       "id": 250,
@@ -2003,7 +2389,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 34
+        "y": 38
       },
       "hiddenSeries": false,
       "id": 420,
@@ -2133,7 +2519,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 34
+        "y": 38
       },
       "hiddenSeries": false,
       "id": 419,
@@ -2377,7 +2763,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 34
+        "y": 38
       },
       "hiddenSeries": false,
       "id": 418,
@@ -2637,7 +3023,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 42
+        "y": 46
       },
       "id": 367,
       "options": {
@@ -2733,7 +3119,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 46
+        "y": 50
       },
       "id": 26,
       "panels": [],
@@ -2771,7 +3157,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 51
       },
       "id": 370,
       "options": {
@@ -2888,7 +3274,7 @@
         "h": 6,
         "w": 4,
         "x": 12,
-        "y": 47
+        "y": 51
       },
       "id": 372,
       "interval": null,
@@ -2966,7 +3352,7 @@
         "h": 6,
         "w": 4,
         "x": 16,
-        "y": 47
+        "y": 51
       },
       "id": 451,
       "interval": null,
@@ -3050,7 +3436,7 @@
         "h": 6,
         "w": 4,
         "x": 20,
-        "y": 47
+        "y": 51
       },
       "id": 382,
       "interval": null,
@@ -3125,7 +3511,7 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 53
+        "y": 57
       },
       "hiddenSeries": false,
       "id": 2,
@@ -3454,10 +3840,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 53
+        "y": 57
       },
       "hiddenSeries": false,
-      "id": 483,
+      "id": 515,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -3484,7 +3870,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -3784,10 +4170,10 @@
         "h": 12,
         "w": 12,
         "x": 0,
-        "y": 65
+        "y": 69
       },
       "hiddenSeries": false,
-      "id": 484,
+      "id": 516,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -3814,7 +4200,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4114,10 +4500,10 @@
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 65
+        "y": 69
       },
       "hiddenSeries": false,
-      "id": 485,
+      "id": 517,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -4144,7 +4530,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 2,
       "scopedVars": {
         "canton": {
@@ -4469,7 +4855,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 77
+        "y": 81
       },
       "id": 52,
       "maxPerRow": 2,
@@ -4650,9 +5036,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 77
+        "y": 81
       },
-      "id": 486,
+      "id": 518,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -4665,7 +5051,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -4832,9 +5218,9 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 83
+        "y": 87
       },
-      "id": 487,
+      "id": 519,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -4847,7 +5233,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -5014,9 +5400,9 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 83
+        "y": 87
       },
-      "id": 488,
+      "id": 520,
       "maxPerRow": 2,
       "options": {
         "showHeader": true,
@@ -5029,7 +5415,7 @@
       },
       "pluginVersion": "7.2.0",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 52,
       "scopedVars": {
         "canton": {
@@ -5189,7 +5575,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 89
+        "y": 93
       },
       "hiddenSeries": false,
       "id": 6,
@@ -5357,10 +5743,10 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 89
+        "y": 93
       },
       "hiddenSeries": false,
-      "id": 489,
+      "id": 521,
       "legend": {
         "avg": false,
         "current": false,
@@ -5383,7 +5769,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5526,10 +5912,10 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 89
+        "y": 93
       },
       "hiddenSeries": false,
-      "id": 490,
+      "id": 522,
       "legend": {
         "avg": false,
         "current": false,
@@ -5552,7 +5938,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5695,10 +6081,10 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 89
+        "y": 93
       },
       "hiddenSeries": false,
-      "id": 491,
+      "id": 523,
       "legend": {
         "avg": false,
         "current": false,
@@ -5721,7 +6107,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 6,
       "scopedVars": {
         "canton": {
@@ -5834,7 +6220,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 94
+        "y": 98
       },
       "id": 285,
       "panels": [],
@@ -5860,7 +6246,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 95
+        "y": 99
       },
       "hiddenSeries": false,
       "id": 8,
@@ -5997,10 +6383,10 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 95
+        "y": 99
       },
       "hiddenSeries": false,
-      "id": 492,
+      "id": 524,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -6027,7 +6413,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6135,10 +6521,10 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 102
+        "y": 106
       },
       "hiddenSeries": false,
-      "id": 493,
+      "id": 525,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -6165,7 +6551,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6273,10 +6659,10 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 102
+        "y": 106
       },
       "hiddenSeries": false,
-      "id": 494,
+      "id": 526,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -6303,7 +6689,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 8,
       "scopedVars": {
         "canton": {
@@ -6414,7 +6800,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 109
+        "y": 113
       },
       "id": 14,
       "interval": null,
@@ -6505,9 +6891,9 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 109
+        "y": 113
       },
-      "id": 495,
+      "id": 527,
       "interval": null,
       "legend": {
         "show": true,
@@ -6520,7 +6906,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6597,9 +6983,9 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 109
+        "y": 113
       },
-      "id": 496,
+      "id": 528,
       "interval": null,
       "legend": {
         "show": true,
@@ -6612,7 +6998,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6689,9 +7075,9 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 109
+        "y": 113
       },
-      "id": 497,
+      "id": 529,
       "interval": null,
       "legend": {
         "show": true,
@@ -6704,7 +7090,7 @@
       "pieType": "pie",
       "pluginVersion": "7.1.5",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 14,
       "scopedVars": {
         "canton": {
@@ -6766,7 +7152,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 117
+        "y": 121
       },
       "id": 90,
       "panels": [],
@@ -6793,7 +7179,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 118
+        "y": 122
       },
       "hiddenSeries": false,
       "id": 88,
@@ -6992,10 +7378,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 118
+        "y": 122
       },
       "hiddenSeries": false,
-      "id": 498,
+      "id": 530,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7020,7 +7406,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7192,10 +7578,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 126
+        "y": 130
       },
       "hiddenSeries": false,
-      "id": 499,
+      "id": 531,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7220,7 +7606,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7392,10 +7778,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 126
+        "y": 130
       },
       "hiddenSeries": false,
-      "id": 500,
+      "id": 532,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -7420,7 +7806,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 88,
       "scopedVars": {
         "canton": {
@@ -7579,7 +7965,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 134
+        "y": 138
       },
       "id": 235,
       "panels": [],
@@ -7604,7 +7990,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 135
+        "y": 139
       },
       "hiddenSeries": false,
       "id": 237,
@@ -7796,10 +8182,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 135
+        "y": 139
       },
       "hiddenSeries": false,
-      "id": 501,
+      "id": 533,
       "legend": {
         "avg": false,
         "current": true,
@@ -7822,7 +8208,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -7989,10 +8375,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 143
+        "y": 147
       },
       "hiddenSeries": false,
-      "id": 502,
+      "id": 534,
       "legend": {
         "avg": false,
         "current": true,
@@ -8015,7 +8401,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8182,10 +8568,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 143
+        "y": 147
       },
       "hiddenSeries": false,
-      "id": 503,
+      "id": 535,
       "legend": {
         "avg": false,
         "current": true,
@@ -8208,7 +8594,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 237,
       "scopedVars": {
         "canton": {
@@ -8377,7 +8763,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 151
+        "y": 155
       },
       "hiddenSeries": false,
       "id": 248,
@@ -8630,10 +9016,10 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 151
+        "y": 155
       },
       "hiddenSeries": false,
-      "id": 504,
+      "id": 536,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -8658,7 +9044,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -8884,10 +9270,10 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 151
+        "y": 155
       },
       "hiddenSeries": false,
-      "id": 505,
+      "id": 537,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -8912,7 +9298,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9138,10 +9524,10 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 151
+        "y": 155
       },
       "hiddenSeries": false,
-      "id": 506,
+      "id": 538,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -9166,7 +9552,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 248,
       "scopedVars": {
         "canton": {
@@ -9379,7 +9765,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 159
+        "y": 163
       },
       "id": 68,
       "panels": [],
@@ -9406,7 +9792,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 160
+        "y": 164
       },
       "hiddenSeries": false,
       "id": 50,
@@ -9662,10 +10048,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 160
+        "y": 164
       },
       "hiddenSeries": false,
-      "id": 507,
+      "id": 539,
       "legend": {
         "avg": false,
         "current": true,
@@ -9688,7 +10074,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -9919,10 +10305,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 168
+        "y": 172
       },
       "hiddenSeries": false,
-      "id": 508,
+      "id": 540,
       "legend": {
         "avg": false,
         "current": true,
@@ -9945,7 +10331,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10176,10 +10562,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 168
+        "y": 172
       },
       "hiddenSeries": false,
-      "id": 509,
+      "id": 541,
       "legend": {
         "avg": false,
         "current": true,
@@ -10202,7 +10588,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 50,
       "scopedVars": {
         "canton": {
@@ -10421,7 +10807,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 176
+        "y": 180
       },
       "id": 116,
       "panels": [],
@@ -10447,7 +10833,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 177
+        "y": 181
       },
       "hiddenSeries": false,
       "id": 118,
@@ -10601,10 +10987,10 @@
         "h": 7,
         "w": 6,
         "x": 6,
-        "y": 177
+        "y": 181
       },
       "hiddenSeries": false,
-      "id": 510,
+      "id": 542,
       "legend": {
         "avg": false,
         "current": true,
@@ -10627,7 +11013,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10756,10 +11142,10 @@
         "h": 7,
         "w": 6,
         "x": 12,
-        "y": 177
+        "y": 181
       },
       "hiddenSeries": false,
-      "id": 511,
+      "id": 543,
       "legend": {
         "avg": false,
         "current": true,
@@ -10782,7 +11168,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -10911,10 +11297,10 @@
         "h": 7,
         "w": 6,
         "x": 18,
-        "y": 177
+        "y": 181
       },
       "hiddenSeries": false,
-      "id": 512,
+      "id": 544,
       "legend": {
         "avg": false,
         "current": true,
@@ -10937,7 +11323,7 @@
       "points": false,
       "renderer": "flot",
       "repeatDirection": "h",
-      "repeatIteration": 1601720360382,
+      "repeatIteration": 1604156833002,
       "repeatPanelId": 118,
       "scopedVars": {
         "canton": {
@@ -11104,5 +11490,5 @@
   "timezone": "",
   "title": "Covid19",
   "uid": "8R5o5pvGz",
-  "version": 3
+  "version": 4
 }
