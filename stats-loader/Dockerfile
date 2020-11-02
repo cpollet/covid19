@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM azul/zulu-openjdk-alpine:11
 
 ENTRYPOINT ["java", "-jar", "/usr/share/stats-loader.jar"]
 
